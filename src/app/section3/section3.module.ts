@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { InLineComponent } from './components/inlinecomponent/inline.component';
 import { CodeBehindComponent } from './components/codebehindcomponent/codebehind.component';
 import { HelloWorldComponent } from './components/hello-world-component/hello-world-component.component';
-import { Section1RoutingModule } from './section1.routing';
+import { Section3RoutingModule } from './section3.routing';
 
 @NgModule({
   declarations: [
@@ -13,8 +13,8 @@ import { Section1RoutingModule } from './section1.routing';
   ],
   imports: [
     CommonModule,
-    Section1RoutingModule
+    Section3RoutingModule
   ],
   bootstrap:[]
 })
-export class Section1Module { }
+export class Section3Module { }
