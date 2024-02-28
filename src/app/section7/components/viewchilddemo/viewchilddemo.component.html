@@ -1,0 +1,137 @@
+<div class="container-fluid">
+    <h3>User Details</h3>
+    <div class="row">
+        <div class="col-3">
+            <div class="btn-group-vertical">
+                <button name="accountdetails" (click)="DisplayView($event)" class="btn btn-danger w-100">Account
+                    Details</button>
+                <button name="namedetails" (click)="DisplayView($event)" class="btn btn-danger w-100">Name
+                    Details</button>
+                <button name="addressdetails" (click)="DisplayView($event)" class="btn btn-danger w-100">Address
+                    Details</button>
+                <button name="geolocationdetails" (click)="DisplayView($event)" class="btn btn-danger w-100">Geo
+                    Location Details</button>
+            </div>
+        </div>
+        <div class="col-9">
+            <!-- <div *ngIf="true; then thenBlock"></div>
+            <ng-template #accountdetails>
+                <h3>Account Details</h3>
+                <dl>
+                    <dt>ID</dt>
+                    <dd>{{user.id}}</dd>
+                    <dt>User Name</dt>
+                    <dd>{{user.username}}</dd>
+                    <dt>Password</dt>
+                    <dd>{{user.password}}</dd>
+                    <dt>Email</dt>
+                    <dd>{{user.email}}</dd>
+                    <dt>Phone</dt>
+                    <dd>{{user.phone}}</dd>
+                </dl>
+            </ng-template>
+            <ng-template #namedetails>
+                <h3>User Name Details</h3>
+                <h3>User Photo</h3>
+                <img [src]="this.image" width="200" height="250">
+                <dl>
+                    <dt>First Name</dt>
+                    <dd>{{user.name.firstname}}</dd>
+                    <dt>Last Name</dt>
+                    <dd>{{user.name.lastname}}</dd>
+                </dl>
+            </ng-template>
+            <ng-template #addressdetails>
+                <dl>
+                    <h3>Address Details</h3>
+                    <dt>City</dt>
+                    <dd>{{user.address.city}}</dd>
+                    <dt>Street Name</dt>
+                    <dd>{{user.address.street}}</dd>
+                    <dt>Street Number</dt>
+                    <dd>{{user.address.number}}</dd>
+                    <dt>Zip Code</dt>
+                    <dd>{{user.address.zipcode}}</dd>
+                </dl>
+            </ng-template>
+            <ng-template #geolocationdetails>
+                <dl>
+                    <h3>Address Geo Location Details</h3>
+                    <dt>Lattitude</dt>
+                    <dd>{{user.address.geolocation.lat}}</dd>
+                    <dt>Longitude</dt>
+                    <dd>{{user.address.geolocation.long}}</dd>
+
+                </dl>
+            </ng-template> -->
+         
+                @if (thenBlock == 'accountdetails') {
+                    <div>
+                        <h3>Account Details</h3>
+                        <dl>
+                            <dt>ID</dt>
+                            <dd>{{user.id}}</dd>
+                            <dt>User Name</dt>
+                            <dd>{{user.username}}</dd>
+                            <dt>Password</dt>
+                            <dd>{{user.password}}</dd>
+                            <dt>Email</dt>
+                            <dd>{{user.email}}</dd>
+                            <dt>Phone</dt>
+                            <dd>{{user.phone}}</dd>
+                        </dl>
+                    </div>
+                  } @else if(thenBlock == 'namedetails'){
+                    <div>
+                        <h3>User Name Details</h3>
+                        <h3>User Photo</h3>
+                        <img [src]="this.image" width="200" height="250">
+                        <dl>
+                            <dt>First Name</dt>
+                            <dd>{{user.name.firstname}}</dd>
+                            <dt>Last Name</dt>
+                            <dd>{{user.name.lastname}}</dd>
+                        </dl>
+                    </div>
+                  } @else if(thenBlock == 'addressdetails'){
+                    <div>
+                        <dl>
+                            <h3>Address Details</h3>
+                            <dt>City</dt>
+                            <dd>{{user.address.city}}</dd>
+                            <dt>Street Name</dt>
+                            <dd>{{user.address.street}}</dd>
+                            <dt>Street Number</dt>
+                            <dd>{{user.address.number}}</dd>
+                            <dt>Zip Code</dt>
+                            <dd>{{user.address.zipcode}}</dd>
+                        </dl>
+                    </div>
+                  }@else {
+                    <div>
+                        <dl>
+                            <h3>Address Geo Location Details</h3>
+                            <dt>Lattitude</dt>
+                            <dd>{{user.address.geolocation.lat}}</dd>
+                            <dt>Longitude</dt>
+                            <dd>{{user.address.geolocation.long}}</dd>
+                        </dl>
+                    </div>
+                  }
+            
+
+           
+        </div>
+    </div>
+</div>
+
+
+
+<div class="btn-group-horizontal">
+    <button (click)="PreviousUser()" class="btn btn-danger me-2">
+        <span class="bi bi-chevron-left"></span> Previous User
+    </button>
+    <button (click)="NextUser()" class="btn btn-danger">
+        <span class="bi bi-chevron-right"></span> Next User
+    </button>
+</div>

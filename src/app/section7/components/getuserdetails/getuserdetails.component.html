@@ -1,0 +1,99 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <h2>User Details</h2>
+
+        <div class="col-6">
+
+            <div class="card w-75 p-2">
+                <div class="card-header" style="height:300px;">
+                    <p><b>User Name : {{user.username}}</b></p>
+                    <img [src]="image" class="card-img-top" height="200">
+                </div>
+
+                <div class="card-body">
+                    <dl>
+                        <dt>Email</dt>
+                        <dd>{{user.email}}</dd>
+                        <dt>First Name</dt>
+                        <dd>{{user?.name?.firstname}}</dd>
+                        <dt>Last Name</dt>
+                        <dd>{{user?.name?.lastname}}</dd>
+                        <dt>Phone</dt>
+                        <dd>{{user.phone}}</dd>
+
+                    </dl>
+
+                </div>
+
+                <div class="card-footer">
+                    <button (click)="PreviousUser()" class="btn btn-danger me-2">
+                        <span class="bi bi-chevron-left"></span> Previous User
+                    </button>
+                    <button (click)="NextUser()" class="btn btn-danger">
+                        <span class="bi bi-chevron-right"></span> Next User
+                    </button>
+
+                    <button (click)="ToggleDisplay()" class="btn btn-success">
+                        <span class="bi bi-eye-fill"></span> {{buttonText}}
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- <div class="col-6" *ngIf="isVisible">
+        <h2>Address Details</h2>
+            <div class="card w-50 p-2">
+        
+                <div class="card-header" style="height:100px;">
+                    <p><b>City : {{user.address.city}}</b></p>
+                </div>
+        
+                <div class="card-body">
+                    <dl>
+                        <dt>Street</dt>
+                        <dd>{{user.address.street}}</dd>
+                        <dt>Street Number</dt>
+                        <dd>{{user.address.number}}</dd>
+                        <dt>Zip Code</dt>
+                        <dd>{{user.address.zipcode}}</dd>
+                        <dt>Geo Location Latitude</dt>
+                        <dd>{{user.address.geolocation.lat}}</dd>
+                        <dt>Geo Location Longitude</dt>
+                        <dd>{{user.address.geolocation.long}}</dd>
+                        
+                    </dl>
+                </div>       
+            </div>
+    </div> -->
+
+        @if (isVisible) {
+        <h2>Address Details</h2>
+        <div class="card w-50 p-2">
+
+            <div class="card-header" style="height:100px;">
+                <p><b>City : {{user.address.city}}</b></p>
+            </div>
+
+            <div class="card-body">
+                <dl>
+                    <dt>Street</dt>
+                    <dd>{{user.address.street}}</dd>
+                    <dt>Street Number</dt>
+                    <dd>{{user.address.number}}</dd>
+                    <dt>Zip Code</dt>
+                    <dd>{{user.address.zipcode}}</dd>
+                    <dt>Geo Location Latitude</dt>
+                    <dd>{{user.address.geolocation.lat}}</dd>
+                    <dt>Geo Location Longitude</dt>
+                    <dd>{{user.address.geolocation.long}}</dd>
+
+                </dl>
+            </div>
+        </div>
+        }
+
+    </div>
+</div>

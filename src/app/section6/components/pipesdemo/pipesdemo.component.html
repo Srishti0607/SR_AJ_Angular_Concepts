@@ -1,0 +1,86 @@
+
+<table class="table">
+    <tr>
+        <th>Slno</th>
+        <th>ProductID</th>
+        <th>ProductName</th>
+        <th>Quantity</th>
+        <th>UnitsInStock</th>
+        <th>Discontinued</th>
+        <th>Cost</th>
+        <th>Launch Date</th>
+        <th>City</th>
+        <th>Delivery Status</th>
+    </tr>
+    <!-- <tr *ngFor="let product of products; let i=index;">
+        <td>{{i+1}}</td>
+        <td>{{product.productID}}</td>
+        <td>{{product.productName | titlecase}}</td>
+        <td>{{product.quantity}}</td>
+        <td>{{product.unitsInStock | percent}}</td>
+        <td>{{product.disContinued}}</td>
+        <td>{{product.cost | currency:"USD":"symbol":"2.2-2"}}</td>
+        <td>{{product.launchDate | date:"fullDate"}}</td>  
+        <td>{{product.City}}</td>
+        <td>{{product.City | i18nSelect:deliveryStatus}}</td>
+    </tr> -->
+
+    @for (product of products;track product;let i=$index;) {
+        <tr>
+            <td>{{i+1}}</td>
+            <td>{{product.productID}}</td>
+            <td>{{product.productName | titlecase}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.unitsInStock | percent}}</td>
+            <td>{{product.disContinued}}</td>
+            <td>{{product.cost | currency:"USD":"symbol":"2.2-2"}}</td>
+            <td>{{product.launchDate | date:"fullDate"}}</td>  
+            <td>{{product.City}}</td>
+            <td>{{product.City | i18nSelect:deliveryStatus}}</td>
+        </tr>
+      } 
+</table>
+<hr/><hr/><hr/>
+<div>
+    <p>{{ customDate | date: "d" }}</p>
+    <p>{{ customDate | date: "M" }}</p>
+    <p>{{ customDate | date: "y" }}</p>
+    <p>{{ customDate | date: "s" }}</p>
+    <p>{{ customDate | date: "m" }}</p>
+    <p>{{ customDate | date: "h" }}</p>    
+    <p>{{ customDate | date: "E" }}</p>
+    <p>{{ customDate | date: "z" }}</p>
+    <p>{{ customDate | date: "dd:MMM:yyyy hh-mm-ss z" }}</p>
+  </div>
+
+  <div class="bg-info p-2 text-white">
+    <div>
+        {{this.products | json}}
+    </div>
+</div>
+
+
+<hr/><hr/><hr/>
+
+<table class="table">
+    <tr>
+        <th>Key</th>
+        <th>Value</th>
+    </tr>
+    <!-- <tr *ngFor="let item of this.products | keyvalue">
+        <th>{{item.key}}</th>
+        <th>{{item.value | json}}</th>
+    </tr> -->
+
+    @for (item of products | keyvalue; track item) {
+        <tr>
+            <th>{{item.key}}</th>
+            <th>{{item.value | json}}</th>
+        </tr>
+      } 
+</table>
+
+<hr/><hr/><hr/>
+<div class="bg-innfo text-blue p-2">
+    <div>There are {{shoppingCartItems.length | i18nPlural:shoppingCartNotification}}</div>
+</div>

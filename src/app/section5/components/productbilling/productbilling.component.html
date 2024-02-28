@@ -1,0 +1,53 @@
+<div class="container-fluid" >
+    <div class="row"  >
+        <div class="col-6 mt-5">
+            <dl>
+                <dt>Product ID</dt>
+                <dd><input type="text" [(ngModel)]="product.productID" class="form-control"></dd>
+
+                <dt>Product Name</dt>
+                <dd><input type="text" [(ngModel)]="product.productName" class="form-control"></dd>
+
+                <dt>Cost</dt>
+                <dd><input type="text" [(ngModel)]="product.cost" class="form-control"></dd>
+
+                <dt>Quantity</dt>
+                <dd><input type="text" [(ngModel)]="product.quantity" class="form-control"></dd>
+
+                <dt>Bill Amount</dt>
+                <dd><input type="text" [(ngModel)]="product.billAmount" class="form-control" readonly></dd>
+
+                <dt>Discount</dt>
+                <dd><input type="text" [(ngModel)]="product.discount" class="form-control" readonly></dd>
+
+                <dt>Net Bill Amount</dt>
+                <dd><input type="text" [(ngModel)]="product.netBillAmount" class="form-control" readonly></dd>
+            </dl>
+            <button class="btn btn-primary" (click)="doCalculations(product)">Calculate</button>
+        </div>
+
+        <div class="col-6 mt-5">
+            <h3>Product Details</h3>
+            <dl>
+                <dt>Product ID</dt>
+                <dd>{{product.productID}}</dd>
+
+                <dt>Product Name</dt>
+                <dd>{{product.productName}}</dd>
+
+                <dt>Cost</dt>
+                <dd>{{product.cost}}</dd>
+                <dt>Quantity</dt>
+                <dd>{{product.quantity}}</dd>
+                <dt>Bill Amount</dt>
+                <dd>{{product.billAmount}}</dd>
+                <dt>Net Bill Amount</dt>
+                <dd>{{product.netBillAmount}}</dd>
+
+            </dl>
+        </div>
+        </div>
+        <div>
+            {{jsonProduct}}
+        </div>
+</div>
