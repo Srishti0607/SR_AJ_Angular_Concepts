@@ -1,0 +1,140 @@
+<div class="container-fluid">
+    <header class="bg-danger text-white text-center p-2">
+        <h2><span class="bi bi-cart"></span>Shopping Cart Demo</h2>
+    </header>
+
+    <div class="row mt-2">
+        <div class="col-2">
+
+            <div>
+                <label class="form-label">Select a Category</label>
+                <div>
+                    <select (change)="onCategoryChanged($event)" class="form-select">
+                        @for (category of Categories; track category;) {
+                        <option [value]="category">
+                            {{category | titlecase}}
+                        </option>
+                        }
+                        <!-- <option *ngFor="let category of Categories" [value]="category">
+                            {{category | titlecase}}
+                        </option> -->
+                    </select>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-7">
+            <div class="d-flex flex-wrap overflow-auto" style="height: 550px;">
+                <div style="width: 200px;" [class.oddRow-style]="o" [class.evenRow-style]="e" class="card m-2 p-2"
+                    *ngFor="let product of Products; let o=odd; let e=even">
+                    <img [src]="product.image" height="150" class="card-img-top">
+                    <div class="card-header" style="height:180px;">
+                        <p>{{product.title}}</p>
+                    </div>
+                    <div class="card-body">
+                        <dl>
+                            <dt>Price</dt>
+                            <dd>{{product.price}}</dd>
+                            <dt>Rating</dt>
+                            <dd><span class="bi bi-star-fill text-success"></span> {{product.rating.rate}}
+                                [{{product.rating.count}}] </dd>
+                        </dl>
+                    </div>
+                    <div class="card-footer">
+                        <button (click)="AddToShoppingCart(product.id)" class="btn btn-danger w-100">
+                            <span class="bi bi-cart4"></span>
+                            Add to Shopping Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3">
+
+
+            <div>
+                <button (click)="ShowShoppingCart()" class="btn btn-danger w-100">
+                    <span class="bi bi-cart2"></span>
+                    [<span>{{CartCount}}</span>] Your Shopping Cart Items
+                </button>
+            </div>
+
+
+            <div class="mt-2">
+                <!-- <table *ngIf="ShowCart" class="table table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Preview</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cartItem of CartItems; let i = index">
+                <td>{{cartItem.title}}</td>
+                <td>
+                    <img [src]="cartItem.image" width="50" height="50">
+                </td>
+                <td>
+                    {{cartItem.price}}
+                </td>
+                <td>
+                    <button (click)="DeleteShoppingCartItem(i)" class="btn btn-danger">
+                        <span class="bi bi-trash-fill"></span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table> -->
+
+                @if(ShowCart){
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Preview</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr *ngFor="let cartItem of CartItems; let i = index">
+                    <td>{{cartItem.title}}</td>
+                    <td>
+                        <img [src]="cartItem.image" width="50" height="50">
+                    </td>
+                    <td>
+                        {{cartItem.price}}
+                    </td>
+                    <td>
+                        <button (click)="DeleteShoppingCartItem(i)" class="btn btn-danger">
+                            <span class="bi bi-trash-fill"></span>
+                        </button>
+                    </td>
+                </tr> -->
+
+                        @for (cartItem of CartItems; track cartItem;let i = $index;) {
+                        <tr>
+                            <td>{{cartItem.title}}</td>
+                            <td>
+                                <img [src]="cartItem.image" width="50" height="50">
+                            </td>
+                            <td>
+                                {{cartItem.price}}
+                            </td>
+                            <td>
+                                <button (click)="DeleteShoppingCartItem(i)" class="btn btn-danger">
+                                    <span class="bi bi-trash-fill"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
