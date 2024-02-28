@@ -1,0 +1,308 @@
+<!-- <div *ngIf="data.loggedIn == true" class="bg-info p-2 mt-1">
+    <h1>Hi {{data.name}} You are logged in Currently!</h1>
+</div> -->
+@if (data.loggedIn) {
+    <h1 class="bg-info p-2 mt-1">Hi {{data.name}} You are logged in Currently!</h1>
+  }
+<!-- <div *ngIf="data.loggedIn == true; else loggedOut" class="bg-info p-2 mt-1">
+    <h1>Hi {{data.name}} You are logged in Currently!</h1>
+</div>
+
+<ng-template #loggedOut>
+    <h1 class="bg-info p-2 mt-1">You are browsing our site as a Guest! Please Login!</h1>
+  </ng-template> -->
+
+  @if (data.loggedIn) {
+    <h1 class="bg-info p-2 mt-1">Hi {{data.name}} You are logged in Currently!</h1>
+  } @else {
+    <h1 class="bg-info p-2 mt-1">You are browsing our site as a Guest! Please Login!</h1>
+  }
+
+
+  <!-- <div *ngIf="data.loggedIn == true; then loggedIn else loggedOut">
+
+  </div> -->
+
+  @if (data.loggedIn) {
+    <h1 class="bg-info p-2 mt-1"> <h1>Hi {{data.name}} You are logged in Currently!</h1></h1>
+  } @else {
+    <h1 class="bg-info p-2 mt-1">You are browsing our site as a Guest! Please Login!</h1>
+  }
+
+  <!-- <ng-template #loggedIn>
+    <h1 class="bg-info p-2 mt-1"> <h1>Hi {{data.name}} You are logged in Currently!</h1></h1>
+  </ng-template> -->
+
+  <!-- <ng-template [ngIf]="data.loggedIn == true" [ngIfElse]="loggedOut">
+    <div class="bg-info p-2 mt-1">
+        <h1>Hi {{data.name}} You are logged in Currently!</h1>
+    </div>
+  </ng-template> -->
+
+  @if (data.loggedIn) {
+    <h1 class="bg-info p-2 mt-1"> <h1>Hi {{data.name}} You are logged in Currently!</h1></h1>
+  } @else {
+    <h1 class="bg-info p-2 mt-1">You are browsing our site as a Guest! Please Login!</h1>
+  }
+
+  <!-- <div *ngIf="data.name == 'James Anderson'" class="bg-info p-2 mt-1">
+    <h1 class="bg-info p-2 mt-1">Hey {{data.name}}! You are also part of our elite players list!</h1>
+</div> -->
+
+@if (data.name == 'James Anderson') {
+    <h1 class="bg-info p-2 mt-1">Hey {{data.name}}! You are also part of our elite players list!</h1>
+  }
+
+
+<!-- <div *ngIf="data.workExperience > 30 && data.workExperience < 40" class="bg-info p-2 mt-1">
+    <h1>Hi {{data.name}} You are eligible for the post of Senior Developer!</h1>
+</div> -->
+
+@if (data.workExperience > 30 && data.workExperience < 40) {
+    <h1 class="bg-info p-2 mt-1">Hi {{data.name}} You are eligible for the post of Senior Developer!</h1>
+  }
+
+
+<!-- <div class="bg-info p-2 mt-1" [ngSwitch]="data.countryCode">
+    <div *ngSwitchCase="'IN'">
+        <h1>Currency Code is INR</h1>
+    </div>
+    <div *ngSwitchCase="'AUS'">
+        <h1>Currency Code is AUD</h1>
+    </div>
+
+    <div *ngSwitchCase="'US'">
+        <h1>Currency Code is USD</h1>
+    </div>
+
+    <div *ngSwitchCase="'UK'">
+        <h1>Currency Code is GBP</h1>
+    </div>
+
+    <div *ngSwitchDefault>
+        <h1>Please Specify a Valid Country Code</h1>
+    </div>
+</div> -->
+
+@switch (data.countryCode) {
+    @case ('IN') { <h1 class="bg-info p-2 mt-1">Currency Code is INR</h1> }
+    @case ('AUS') { <h1 class="bg-info p-2 mt-1">Currency Code is AUD</h1> }
+    @case ('US') { <h1 class="bg-info p-2 mt-1">Currency Code is USD</h1> }
+    @case ('UK') { <h1 class="bg-info p-2 mt-1">Currency Code is GBP</h1> }
+    @default { <h1 class="bg-info p-2 mt-1">Please Specify a Valid Country Code</h1> }
+  }
+
+<!-- <div [ngSwitch]="data.loggedIn">
+    <div *ngSwitchCase="true">
+        Welcome {{ data.name }}
+    </div>
+    <div *ngSwitchDefault>
+        Please Login
+    </div>
+</div> -->
+
+@switch (data.loggedIn) {
+    @case ('true') {  Welcome {{ data.name }} }
+    @default { Please Login}
+  }
+
+<table class="table">
+    <tr>
+        <th>Slno</th>
+        <th>ProductID</th>
+        <th>ProductName</th>
+        <th>Quantity</th>
+        <th>UnitsInStock</th>
+        <th>Discontinued</th>
+        <th>Cost</th>
+    </tr>
+    
+    <!-- <tr *ngFor="let product of products; let i=index; let odd=odd; let first=first; let last=last;" class="text-white" [class.bg-primary]="odd" [class.bg-info]="!odd" [class.bg-warning]="first || last"> -->
+    <!-- <tr *ngFor="let product of products; let i=index;let odd=odd;let first=first; let last=last;" class="text-white" [class.bg-primary]="odd" [class.bg-info]="!odd" [class.bg-warning]="first || last">
+        <td>{{i+1}}</td>
+        <td>{{product.productID}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.quantity}}</td>
+        <td>{{product.unitsInStock}}</td>
+        <td>{{product.disContinued}}</td>
+        <td>{{product.cost}}</td>
+    </tr> -->
+
+    @for (product of products; track product;let i = $index; let odd=$odd; let first=$first; let last=$last;) {
+        <tr class="text-white" class="text-white" [class.bg-primary]="odd" [class.bg-info]="!odd" [class.bg-warning]="first || last">
+            <td>{{i+1}}</td>
+            <td>{{product.productID}}</td>
+            <td>{{product.productName}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.unitsInStock}}</td>
+            <td>{{product.disContinued}}</td>
+            <td>{{product.cost}}</td>
+        </tr>
+      } 
+    </table>
+
+
+    <table class="table">
+        <tr>
+            <th>Slno</th>
+            <th>ProductID</th>
+            <th>ProductName</th>
+            <th>Quantity</th>
+            <th>UnitsInStock</th>
+            <th>Discontinued</th>
+            <th>Cost</th>
+        </tr>
+        
+        <!-- <tr *ngFor="let product of products; let i=index; let odd=odd; let first=first; let last=last;" class="text-white" [class.bg-primary]="odd" [class.bg-info]="!odd" [class.bg-warning]="first || last"> -->
+        <!-- <tr *ngFor="let product of products; let i=index;let odd=odd;let first=first; let last=last;" [class.bg-primary]="odd" [class.bg-info]="!odd" [class.bg-warning]="first || last"> -->
+            <!-- <ng-template ngFor let-product [ngForOf]="products" let-i="index" let-odd="odd" let-first=first let-last=last>
+            <tr class="text-white" [class.bg-primary]="odd" [class.bg-info]="!odd" [class.bg-warning]="first || last">
+                <td>{{i+1}}</td>
+                <td>{{product.productID}}</td>
+                <td>{{product.productName}}</td>
+                <td>{{product.quantity}}</td>
+                <td>{{product.unitsInStock}}</td>
+                <td>{{product.disContinued}}</td>
+                <td>{{product.cost}}</td>
+            </tr>
+    </ng-template> -->
+    @for (product of products; track product;let i = $index; let odd=$odd; let first=$first; let last=$last;) {
+        <tr class="text-white" class="text-white" [class.bg-primary]="odd" [class.bg-info]="!odd" [class.bg-warning]="first || last">
+            <td>{{i+1}}</td>
+            <td>{{product.productID}}</td>
+            <td>{{product.productName}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.unitsInStock}}</td>
+            <td>{{product.disContinued}}</td>
+            <td>{{product.cost}}</td>
+        </tr>
+      } 
+    </table>
+
+    <!-- Class Binding -->
+    <hr><hr><hr>
+    <div [ngClass]="getClassDynamically()">
+        <h1>Currently We are selling {{this.products.length}} products.</h1>
+    </div>
+
+    <div [ngClass]="'text-black m-3 p3 ' + getClassDynamically()">
+        <h1>Currently We are selling {{this.products.length}} products.</h1>        
+    </div>
+
+    <div class="p-2"
+    [ngClass]="getClassMap(4)">
+    Cost of {{this.products[4].productName}} is {{this.products[4].cost}}
+</div>
+
+<div class="p-2"
+    [ngClass]="getClassMap(3)">
+    Cost of {{this.products[3].productName}} is {{this.products[3].cost}}
+</div>
+
+<hr><hr><hr>
+<!-- One Way Binding Demos -->
+
+<div class="form-group m-2">
+    <label>ProductID</label>
+    <input class="form-control" [value]="this.products[1]?.productID || 'None'" />
+
+    <label>Product Name</label>
+        <input class="form-control" [value]="this.products[1]?.productName || 'None'" />
+
+        <label>Quantity</label>
+        <input class="form-control" [value]="this.products[1]?.quantity || 'None'" />
+
+        <label>UnitsInStock</label>
+        <input class="form-control" [value]="this.products[1]?.unitsInStock || 'None'" />
+
+        <label>DisContinued</label>
+        <input class="form-control" [value]="this.products[1]?.disContinued" />
+
+        <label>Cost</label>
+        <input class="form-control" [value]="this.products[1]?.cost || 'None'" />
+
+</div>
+
+ <!-- Using the String Interpolation Binding -->
+
+ <table class="table">
+    <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>UnitsInStock</th>
+        <th>Discontinued</th>
+        <th>Cost</th>
+    </tr>
+    <tr>
+        <td [textContent]="this.products[1]?.productID"></td>
+        <td [textContent]="this.products[1]?.productName"></td>
+        <td [textContent]="this.products[1]?.quantity"></td>
+        <td [textContent]="this.products[1]?.unitsInStock"></td>
+        <td [textContent]="this.products[1]?.disContinued"></td>
+        <td [textContent]="this.products[1]?.cost"></td>
+    </tr>
+</table>
+
+<table class="table">
+    <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>UnitsInStock</th>
+        <th>Discontinued</th>
+        <th>Cost</th>
+    </tr>
+    <tr>        
+    <td>{{this.products[1]?.productID}}</td>
+    <td>{{this.products[1]?.productName}}</td>
+    <td>{{this.products[1]?.quantity}}</td>
+    <td>{{this.products[1]?.unitsInStock}}</td>
+    <td>{{this.products[1]?.disContinued}}</td>
+    <td>{{this.products[1]?.cost}}</td>
+</tr>
+</table>
+
+<hr><hr><hr>
+
+<!-- Using Attribute Binding -->
+<table class="table">
+    <tr>
+        <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th>
+    </tr>
+        <tr>
+            <td align="center" [colSpan]="this.products.length">
+                 {{this.products[1].productName}}   
+            </td>    
+        </tr>    
+</table>
+
+<table [attr.height]="this.tableHeight" border="5">
+    <tr>
+        <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th>
+    </tr>
+        <tr>
+            <td align="center" [colSpan]="this.products.length">
+                 {{this.products[1].productName}}   
+            </td>    
+        </tr>    
+</table>
+
+<hr><hr><hr>
+<!-- ngStyle Demo -->
+
+<div class="text-white m-2">
+    <div class="p-2 bg-warning">
+        The <span [ngStyle]="this.getStylesDynamically(4)">Fourth</span>
+        product is {{this.products[4].productName}}.
+    </div>
+</div>
+
+<div class="text-white m-2">
+    <div class="p-2 bg-warning">
+        The <span [ngStyle]="this.getStylesDynamically(3)">Third</span>
+        product is {{this.products[3].productName}}.
+    </div>
+</div>
+
+

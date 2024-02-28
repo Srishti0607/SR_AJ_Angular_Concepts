@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <input type="text" [(ngModel)]="countryCode" />
+        <!-- <button class="btn  btn-primary"  (click)="getCurrencyDetails()">Get Currency Details</button>  -->
+        <button class="btn  btn-primary">Get Currency Details</button> 
+    </div>
+
+    <!-- <div *ngIf="this.countryCode.length > 1; else elseBlock; then thenBlock"> </div>
+        <ng-template #elseBlock>
+            You havent entered Country Code Yet!
+        </ng-template>
+        <ng-template #IND>
+            <h1>India's Currency Code is INR</h1>
+        </ng-template>
+        <ng-template #USA>
+            <h1>USA's Currency Code is USD</h1>
+        </ng-template>
+        <ng-template #UK>
+            <h1>UK's Currency Code is GBP</h1>
+        </ng-template>
+        <ng-template #INVALID>
+            <h1>Invalid Country Code Entered..</h1>
+        </ng-template> -->
+
+        @if (countryCode == '') {
+            You havent entered Country Code Yet!
+          } @else if(countryCode == 'IND') {
+            India's Currency Code is INR
+          } @else if(countryCode == 'USA') {
+            USA's Currency Code is USD
+          }  @else if(countryCode == 'UK') {
+            UK's Currency Code is GBP
+          } @else {
+            Invalid Country Code Entered..
+          }
+</div>

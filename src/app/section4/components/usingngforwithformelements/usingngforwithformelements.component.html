@@ -1,0 +1,194 @@
+<!-- Buletted List -->
+
+<!-- <ul>
+    <li *ngFor="let product of this.products;">
+        {{product.productName}}
+    </li>
+</ul> -->
+
+<ul>
+    @for (product of products;track product) {
+        <li>
+            {{product.productName}}
+        </li>
+      } 
+</ul>
+
+
+<!-- <ol>
+    <li *ngFor="let product of this.products;">
+        {{product.productName}}
+    </li>
+</ol> -->
+
+<ol>
+    @for (product of products;track product) {
+        <li>
+            {{product.productName}}
+        </li>
+      } 
+</ol>
+
+<!-- <ol class="list-unstyled">
+    <li *ngFor="let product of this.products;">
+        <input type="checkbox"> {{product.productName}}
+    </li>
+</ol> -->
+
+<ol class="list-unstyled">
+    @for (product of products;track product) {
+        <input type="checkbox"> {{product.productName}}<br/>
+      }
+</ol>
+
+<!-- <ol class="list-unstyled">
+    <li *ngFor="let product of this.products;">
+        <input type="radio" name="productname"> {{product.productName}}
+    </li>
+</ol> -->
+
+<ol class="list-unstyled">
+    @for (product of products;track product) {
+        <input type="radio" name="productname"> {{product.productName}}<br/>
+      }
+</ol>
+
+<!-- <select class="form-select">
+    <option *ngFor="let product of this.products">{{product.productName}}</option>
+</select>
+
+
+<select class="form-select" size="4">
+    <option *ngFor="let product of this.products">{{product.productName}}</option>
+</select>
+
+<select class="form-select" size="4">
+    <option *ngFor="let product of this.products" [selected]="product.productName === 'AMD Ryzen 3970'" >{{product.productName}}</option>
+</select> -->
+
+<select class="form-select">
+    @for (product of products;track product) {
+        <option>{{product.productName}}</option>
+      }
+</select>
+
+
+<select class="form-select" size="4">
+    @for (product of products;track product) {
+        <option>{{product.productName}}</option>
+      }
+</select>
+
+<select class="form-select" size="4">
+    @for (product of products;track product) {
+        <option  [selected]="product.productName === 'AMD Ryzen 3970'" >{{product.productName}}</option>
+      }
+</select>
+
+<h2>Processors List</h2>
+<!-- <ol>
+    <li *ngFor="let processor of Processors">
+        {{processor.Category}}
+        <ul>
+            <li *ngFor="let product of processor.Products">
+                 {{product}}
+            </li>
+        </ul>
+    </li>
+</ol> -->
+
+<ol>
+    @for (processor of Processors;track processor) {
+        {{processor.Category}}<br/>
+        <ul>
+            @for (product of processor.Products; track product) {
+                {{product}}<br/>
+              }
+        </ul>
+      }
+</ol>
+
+<h2>Select Processor</h2>
+<!-- <select>
+    <optgroup *ngFor="let processor of Processors" [label]="processor.Category">
+        <option *ngFor="let product of processor.Products">
+             {{product}}
+        </option>
+    </optgroup>
+</select> -->
+
+<select>
+    @for (processor of Processors;track processor) {
+        <optgroup [label]="processor.Category">
+            @for (product of  processor.Products;track product) {
+                <option>{{product}}</option><br/>
+              }
+        </optgroup>
+      }
+    <optgroup *ngFor="let processor of Processors" [label]="processor.Category">
+        <option *ngFor="let product of processor.Products">
+             {{product}}
+        </option>
+    </optgroup>
+</select>
+
+<!-- <div class="container-fluid">
+    <h2>Processors</h2>
+    <dl *ngFor="let item of this.products">      
+          <dt>{{item.productID}}</dt>
+          <dd>{{item.productName}}</dd>
+    </dl>      
+</div> -->
+
+<div class="container-fluid">
+    <h2>Processors</h2>
+    @for (item of products;track item) {
+        <dl>      
+            <dt>{{item.productID}}</dt>
+            <dd>{{item.productName}}</dd>
+      </dl>
+      }
+</div>
+
+<!-- <div class="container-fluid">
+    <h2>Processors</h2>
+    <div *ngFor="let item of this.products">      
+	<dl>
+          <dt>{{item.productID}}</dt>
+          <dd>{{item.productName}}</dd>
+     </dl>      
+</div>
+</div> -->
+
+<div class="container-fluid">
+    <h2>Processors</h2>
+    @for (item of products;track item) {
+        <dl>
+            <dt>{{item.productID}}</dt>
+            <dd>{{item.productName}}</dd>
+       </dl> 
+      }
+</div>
+
+<!-- <div class="container-fluid">
+    <h2>Processors</h2>
+    <dl>
+       <ng-container *ngFor="let item of this.products">
+          <dt>{{item.productID}}</dt>
+          <dd>{{item.productName}}</dd>
+       </ng-container>      
+    </dl>
+    
+   
+</div> -->
+
+
+<div class="container-fluid">
+    <h2>Processors</h2>
+    @for (item of products;track item) {
+        <dl>
+            <dt>{{item.productID}}</dt>
+            <dd>{{item.productName}}</dd>
+       </dl> 
+      }
+</div>
