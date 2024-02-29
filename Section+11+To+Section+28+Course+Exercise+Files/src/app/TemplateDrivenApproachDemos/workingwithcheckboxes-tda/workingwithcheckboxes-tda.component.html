@@ -1,0 +1,37 @@
+<div class="container">
+    <h4>Net Salary Calculation</h4>
+        <form name="frmAllowances">
+
+            <div class="form-group row">
+                <label class="col-sm-2" for="Salary">Salary</label>
+                <input type="text" class="col-sm-2" type="number" 
+                name="salary" 
+                [(ngModel)]="salary" />
+              
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2">Allowance Types</label>
+                <div class="btn-group-toggle" data-toggle="buttons" 
+                *ngFor="let aType of allowanceTypes">
+                    <input type="checkbox" name="aType" 
+                    value="{{aType?.val}}" [checked]="aType?.checked"
+                        (change)="calculateAmt(aType);">{{aType?.name}}
+                </div>
+    
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2" for="allowanceAmt">Allowance Amount</label>
+                <input type="text" class="col-sm-2" 
+                name="allowanceAmt" 
+                [(ngModel)]="allowanceAmt" readonly/>
+                <br />
+                <label class="col-sm-2" for="netSal">Net Salary</label>
+                <input type="text" class="col-sm-2" 
+                name="netSal"  
+                [(ngModel)]="netSal" readonly/>
+            </div>    
+
+
+	   </form>
+</div>
+

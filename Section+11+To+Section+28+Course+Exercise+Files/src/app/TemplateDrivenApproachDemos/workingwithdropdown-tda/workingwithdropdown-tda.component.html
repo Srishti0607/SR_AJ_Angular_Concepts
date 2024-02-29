@@ -1,0 +1,147 @@
+
+<form class="container">
+    <h3>Working with DropDown Lists !!</h3>
+    <div>
+
+
+
+  <div class="form-group row">
+        <label>Countries</label>
+        <select class="btn col-sm-10 dropdown-toggle btn-outline-info" 
+        (change)="updateInputs()" data-toggle="dropdown" 
+        name="countryCodes"
+        [(ngModel)]="countryCodes" 
+        placeholder="Select" 
+        appearance="outline">
+          <option *ngFor="let countryDet of countryDetObj" 
+          [ngValue]="countryDet">
+          {{countryDet?.countryName}}
+          </option>
+        </select>
+      </div>
+
+      <br/>
+      <div class="form-group row">
+        <label class="col-sm-2">Currency Code</label>
+        <input class="col-sm-2" type="text"  
+        name="currencyCode"
+        [(ngModel)]="currencyCode" readonly>
+      </div>
+      <br/>
+      <div class="form-group row">
+        <label class="col-sm-2">Population</label>
+        <input class="col-sm-2" type="text"  
+        name="population"
+        [(ngModel)]="population" readonly>
+      </div>
+      <br/>
+      <div class="form-group row">
+        <label class="col-sm-2">Capital</label>
+        <input class="col-sm-2" type="text"  
+        name="capital"
+        [(ngModel)]="capital" readonly>
+      </div>
+    </div>
+
+    <div class="form-group row">
+
+        <label class="col-sm-2">Upper Alphabets</label>
+        <select class="btn col-sm-2 btn-sm dropdown-toggle btn-outline-info" 
+        data-toggle="dropdown" placeholder="Select" appearance="outline" 
+        [(ngModel)]="upperAlpha" name="upperAlpha">
+          <option *ngFor="let upLet of upperLetterObj" 
+          value="{{upLet}}">{{upLet}}</option>
+        </select>
+
+        <label class="col-sm-2">Lower Alphabets</label>
+        <select class="btn col-sm-2 btn-sm dropdown-toggle btn-outline-info" 
+        data-toggle="dropdown" placeholder="Select" appearance="outline">
+          <option *ngFor="let loLet of lowerLetterObj" 
+          value="{{loLet}}">{{loLet}}</option>
+        </select>
+
+        <label class="col-sm-2">Numbers</label>
+        <select class="col-sm-2 btn btn-sm dropdown-toggle btn-outline-info" 
+        data-toggle="dropdown" placeholder="Select" appearance="outline">
+          <option *ngFor="let num of numberObj" 
+          value="{{num}}">{{num}}</option>
+        </select>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2">Upper Count</label>
+        <input class="col-sm-2" type="text" 
+        [value]="upperLetterObj?.length" disabled>
+        <label class="col-sm-2">Lower Count</label>
+        <input class="col-sm-2" type="text" 
+        [value]="lowerLetterObj?.length" disabled>
+        <label class="col-sm-2">Upper Count</label>
+        <input class="col-sm-2" type="text" 
+        [value]="numberObj?.length" disabled>
+      </div>
+
+      <div class="form-group row">
+        <button class="btn btn-primary col-sm-2" type="button" 
+        [disabled]="upperLetterObj.length>0 || lowerLetterObj.length>0 || numberObj.length>0"
+          (click)="initializeList()">RESET LIST</button>
+        </div>
+    
+        <div class="form-group row">
+            <button class="col-sm-2 btn btn-primary" type="button" 
+            (click)="clearDetails()">CLEAR LIST</button>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2">Enter Data To Delete</label>
+            <input class="col-sm-2" type="text" 
+            placeholder="Enter Data To Delete" 
+            name="inputDataForDeletion" [(ngModel)]="inputDataForDeletion">
+            
+            <button class="col-sm-2 btn btn-primary" type="button" 
+            [disabled]="!inputDataForDeletion" 
+            (click)="applyOperation('D')">DELETE ITEM</button>
+
+          </div>
+
+          <div class="form-group row">
+            <input class="col-sm-2" type="text" 
+            placeholder="Enter Data To Select" 
+            name="inputDataForSelection" [(ngModel)]="inputDataForSelection">
+            
+            <button class="col-sm-2 btn btn-primary" type="button" 
+            [disabled]="!inputDataForSelection"
+              (click)="applyOperation('S')">SELECT ITEM</button>
+          </div>
+
+          <br/>
+
+          <div class="form-group row">
+            <input class="col-sm-2" type="text" placeholder="Item to be updated" 
+            name="initialdata" [(ngModel)]="initialdata">
+            
+            <input class="col-sm-2" type="text" placeholder="Replacement Text"  
+            name="finaldata" [(ngModel)]="finaldata">
+            
+            <button class="col-sm-2 btn btn-primary" type="button" 
+            [disabled]="!initialdata || !finaldata"
+              (click)="applyOperation('U')">UPDATE ITEM</button>
+          </div>
+          <br />
+          <br/>
+          <div class="form-group row">
+            <label class="col-sm-2">Enter Data To Insert</label>
+            
+            <input class="col-sm-2" type="text" placeholder="Enter Data To Insert"  
+            name="inputDataForInsertion" [(ngModel)]="inputDataForInsertion">
+            
+            <label class="col-sm-2">Enter Position</label>            
+            <input class="col-sm-2" type="number" placeholder="Enter Position" 
+            name="insertposition" [(ngModel)]="insertposition">
+            
+            <button class="col-sm-2 btn btn-primary" type="button" 
+            [disabled]="!inputDataForInsertion"
+              (click)="insertItemInUpperList()">INSERT ITEM</button>
+          </div>
+        
+
+</form>

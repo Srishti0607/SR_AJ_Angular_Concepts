@@ -1,0 +1,48 @@
+
+<div>
+    <button type="button" class="btn btn-primary" 
+style="width: 200px"
+[routerLink]="['/insertEmployeeDetails']">Create Employee</button>     
+</div>
+
+
+<table  id="customers">
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Title</th>
+        <th>Title Of Courtesy</th>
+        <th>Gender</th>
+        <th>Has Passport</th>
+        <th>Date of Joining</th>
+        <th>Salary</th>
+        <th>Action</th>
+    </tr>        
+    
+    <tr *ngFor="let emp of allEmployees">
+        <td>{{emp.id}}</td>
+        <td>{{emp.firstName}}</td>
+        <td>{{emp.lastName}}</td>
+        <td>{{emp.title}}</td>
+        <td>{{emp.titleOfCourtesy}}</td>
+        <td>{{emp.gender}}</td>
+        <td>{{emp.hasPassport}}</td>
+        <td>{{emp.dateOfJoining | date}}</td>
+        <td>{{emp.salary}}</td>
+        <td>
+            <span>                    
+                <a class="nav-link" 
+                [routerLink]="['/getEmployeeDetails',emp.id]">Details</a>|
+                <a class="nav-link" 
+                [routerLink]="['/updateEmployeeDetails',emp.id]">Edit</a>|
+                <a class="nav-link" 
+                [routerLink]="['/deleteEmployeeDetails',emp.id]">Delete</a>
+            </span>  
+
+        </td>
+    </tr>            
+        </table>
+
+      
+ 

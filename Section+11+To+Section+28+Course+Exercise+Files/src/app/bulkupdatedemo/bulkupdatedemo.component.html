@@ -1,0 +1,49 @@
+
+<form [formGroup]="customerForm">
+    <table border="1" id="customers">
+        <tr>            
+            <th><input type="checkbox" 
+                formControlName="headerChk"  
+                (change)="onAllSelectionChange($event)"></th>  
+            <th></th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>City</th>
+            <th>State</th>
+        </tr>
+        <tbody formArrayName="customerFormArray">
+            <tr *ngFor="let control of getControls(); let i = index;" [formGroupName]="i">                
+                <td><input type="checkbox" 
+                    (change)="onSelectionChange(control['value'])" 
+                    [checked]="control['value']['check']">
+                </td>
+
+                <td><input type="radio" name="del_row" 
+(change)="onRadioSelectionChange(control['value'])" ></td>
+
+
+                <td><input type="text" formControlName="CustName"></td>
+                <td><input type="text" formControlName="CustPosition"></td>
+                <td><input type="text" formControlName="CustCity"></td>
+                <td><input type="text" formControlName="CustState"></td>
+            </tr>
+        </tbody>
+</table>
+</form> 
+
+<button type="button" style="float:centre" 
+[disabled]="!customerForm.valid" 
+(click)="updateRecords()">Update All</button>
+
+<button type="button" 
+style="float:centre" [disabled]="!customerForm.valid" 
+(click)="bulkDelete()">
+Delete All
+</button>
+
+<button type="button" style="float:centre" 
+[disabled]="itemSelectedFromRadio == 0" 
+(click)="deleteOnRadio()">Delete On Radio
+</button>
+
+

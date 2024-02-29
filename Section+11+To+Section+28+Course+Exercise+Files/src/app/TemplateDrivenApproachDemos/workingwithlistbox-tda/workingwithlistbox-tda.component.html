@@ -1,0 +1,77 @@
+<form  class="container">
+    <h3>Working with List Box</h3>
+    <br/>
+
+    <div class="form-group row">
+        <label>Salary</label>
+        <div class="col-sm-2">
+        <input class="form-control" type="number" 
+        name="salary"
+        [(ngModel)]="salary"/>
+        </div>
+   </div>
+
+   <div class="container">
+        <div class="row">
+               
+ <div class="col-sm">
+    <label for="initialList">Available Allowances</label>
+    <select class="form-control" name="initialList"                
+    [multiple]="isMultiple" 
+    [(ngModel)]="initialList"
+    size="6">
+      <option *ngFor="let aType of allowanceTypes;let i = index" 
+      value="{{aType?.val}}-{{aType?.name}}-{{i}}">
+      {{aType?.name}}
+    </option>
+    </select>
+  </div>  
+
+  <div class="col-sm-auto">
+    <br>
+    <button type="button" class="btn btn-outline-primary" [disabled]="this.allowanceTypes.length == 0 || this.initialList.length == 0 || this.initialList.length > 1" (click)="pushData('R')">></button><br/>
+    <button type="button" class="btn btn-outline-primary" [disabled]="this.finalObj.length == 0 || this.finalList.length > 1 || this.finalList.length == 0" (click)="pushData('L')"><</button><br />
+    <button type="button" class="btn btn-outline-primary" [disabled]="this.allowanceTypes.length == 0 || this.initialList.length == 0 || this.initialList.length == 1" (click)="pushData('R')">>></button><br/>
+    <button type="button" class="btn btn-outline-primary" [disabled]="this.finalObj.length == 0 || this.finalList.length == 0 || this.finalList.length == 1" (click)="pushData('L')"><<</button><br />              
+  </div>
+
+  <div class="col-sm">
+    <label for="finalList">Allowances Entitled For</label>
+    <select class="form-control" name="finalList" 
+    [(ngModel)]="finalList" [multiple]="isMultiple" size="6">
+    <option>Please Select</option>
+    <option *ngFor="let aType of finalObj;let i = index" 
+    value="{{aType?.val}}-{{aType?.name}}-{{i}}">
+    {{aType?.name}}
+  </option>
+  </select>
+  </div>
+
+  <div class="form-group row">
+    <label>Net Allowance Amount</label>
+    <div class="col-sm-2">
+      <input class="form-control" type="number" 
+      [(ngModel)]="allowance" readonly name="allowance"/>
+  </div>
+  </div>
+  <br/>
+  <div class="form-group row">
+    <label>Net Salary</label>
+    <div class="col-sm-2">
+      <input class="form-control" type="number" 
+      [(ngModel)]="netSal" name="netSal" readonly/>
+  </div>
+  </div>
+  <br/>
+  <button class="btn btn-primary" type="button" (click)="calculateNetSal()" 
+  [disabled]="this.salary == 0 || this.finalObj.length == 0">Calculate</button>
+
+
+
+        </div> 
+</div>
+
+
+
+</form>
+

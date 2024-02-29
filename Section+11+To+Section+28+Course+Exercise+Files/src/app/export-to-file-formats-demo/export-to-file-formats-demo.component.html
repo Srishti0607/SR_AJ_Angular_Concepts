@@ -1,0 +1,34 @@
+<div class="container" #TABLE>
+    <table border="1" id="customers" style="width:60%">
+        <tr>
+          <th>Country code</th>
+          <th>Continent Name</th>
+          <th>Country Name</th>
+          <th>Capital</th>   
+          <th>Currency Code</th>
+          <th>Population</th>       
+        </tr>
+        <tr *ngFor="let country of countryDetObj">
+        <td>{{country.countryCode}}</td>
+          <td>{{country.continentName}}</td>
+          <td>{{country.countryName}}</td>
+          <td>{{country.capital}}</td>
+          <td>{{country.currencyCode}}</td>
+          <td>{{country.population}}</td>
+        </tr>    
+      </table>
+      <br/>              
+
+<button class="btn btn-primary" (click)="exportTxt()">Export as TXT</button>
+<button class="btn btn-primary" (click)="exportPNG()">Export as PNG</button>
+<button class="btn btn-primary" (click)="exportJson()">Export as JSON</button> 
+ 
+<button class="btn btn-primary" (click)="exportPDF()">Export as PDF</button>          
+      
+<button class="btn btn-primary" (click)="exportToCSV()">Export as CSV</button>
+
+<button class="btn btn-primary" (click)="exportToExcel()">Export as Excel</button>
+
+
+  
+    </div>
