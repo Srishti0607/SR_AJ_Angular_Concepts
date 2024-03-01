@@ -1,0 +1,35 @@
+<form [formGroup]="reactiveForm">
+    <div class="form-group row">
+        <input type="text" class="col-sm-2" 
+        formControlName="employeeId"
+        appDoValidations [numericOnly]="true" 
+        placeholder="Numeric Only">
+    </div>
+
+    <div class="form-group row">
+        <input type="text" class="col-sm-2" 
+        placeholder="Alphabets Only" 
+        formControlName="firstName"
+        appDoValidations 
+        [allowSpace]="true" [alphabetsOnly]="true"  autocomplete="off"
+            maxlength="10" />
+    </div>
+    <br />
+    
+    <div class="form-group row">
+        <input class="col-sm-2" placeholder="Alphabets and Numeric Only" 
+        formControlName="address" appDoValidations 
+        [alphaNumericOnly]="true"
+            autocomplete="off" maxlength="10" />
+    </div>
+    
+    
+    <div class="form-group row">
+        <input class="col-sm-2" 
+        placeholder="Cut Copy Paste are not allowed here...." 
+        appBlockcutcopypaste       
+        autocomplete="off" maxlength="10" />
+    </div>
+
+
+</form>
