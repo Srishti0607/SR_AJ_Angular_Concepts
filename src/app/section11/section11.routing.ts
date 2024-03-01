@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ValidationsDirectivesDemoComponent } from './components/validations-directives-demo/validations-directives-demo.component';
+import { ValidationsDirectivesDemoComponent } from './components/TestCustomDirectivesDemos/validations-directives-demo/validations-directives-demo.component';
 
 const routes: Routes = [
     {
