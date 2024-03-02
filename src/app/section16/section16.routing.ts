@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PaginationsortingsearchdemoComponent } from './components/paginationsortingsearchdemo/paginationsortingsearchdemo.component';
 
 const routes: Routes = [
+    {
+        path: '',
+        component: PaginationsortingsearchdemoComponent
+    }
   
 ];
 
