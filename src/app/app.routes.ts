@@ -105,5 +105,35 @@ export const routes: Routes = [
         path: 'section22',
         loadChildren: () =>
             import('./section22/section22.module').then((m) => m.Section22Module),
+    },
+    {
+        path: 'section23',
+        loadChildren: () =>
+            import('./section23/section23.module').then((m) => m.Section23Module),
+    },
+    {
+        path: 'section24',
+        loadChildren: () =>
+            import('./section24/section24.module').then((m) => m.Section24Module),
+    },
+    {
+        path: 'section25',
+        loadChildren: () =>
+            import('./section25/section25.module').then((m) => m.Section25Module),
+    },
+    {
+        path: 'section26',
+        loadChildren: () =>
+            import('./section26/section26.module').then((m) => m.Section26Module),
+    },
+    {
+        path: 'section27',
+        loadChildren: () =>
+            import('./section27/section27.module').then((m) => m.Section27Module),
+    },
+    {
+        path: 'section28',
+        loadChildren: () =>
+            import('./section28/section28.module').then((m) => m.Section28Module),
     }
 ]
