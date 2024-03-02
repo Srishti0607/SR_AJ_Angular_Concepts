@@ -1,0 +1,27 @@
+.section-root{
+    flex-direction: column;
+    display: flex;
+    padding-left: 8px;
+}
+.section-root .sections-grid{
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 10px;
+}
+
+
+.section-root .sections-grid .sections {
+    border: 1px solid black;
+    padding: 5px;
+    max-width: 32.5%;
+    width: 100%;
+    cursor: pointer;
+    background-color: #A8D8F0;
+    border-radius: 4px;
+}
+
+.section-root .sections-grid .sections:hover{
+    background-color: #10A5F0;
+}
