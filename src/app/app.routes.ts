@@ -60,6 +60,11 @@ export const routes: Routes = [
         path: 'section13',
         loadChildren: () =>
         import('./section13/section13.module').then((m)=>m.Section13Module),
+    },
+    {
+        path: 'section14',
+        loadChildren: () =>
+        import('./section14/section14.module').then((m)=>m.Section14Module),
     }
 ];
 
