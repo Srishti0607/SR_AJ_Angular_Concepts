@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { CustomdemoService } from '../services/customdemo.service';
+import { CustomdemoService } from '../../../services/customdemo.service';
 
 @Component({
   selector: 'app-bulkupdatedemo',

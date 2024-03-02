@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup,FormControl, Validators } from '@angular/forms';
-
-import { CustomdemoService } from '../services/customdemo.service';
+import { CustomdemoService } from '../../../services/customdemo.service';
 
 
 @Component({
