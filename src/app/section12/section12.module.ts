@@ -6,7 +6,7 @@ import { WorkingwithlistboxTdaComponent } from './components/TemplateDrivenAppro
 import { WorkingwithradiobuttonTDAComponent } from './components/TemplateDrivenApproachDemos/workingwithradiobutton-tda/workingwithradiobutton-tda.component';
 import { WorkingwithtextboxesTdaComponent } from './components/TemplateDrivenApproachDemos/workingwithtextboxes-tda/workingwithtextboxes-tda.component';
 import { Section12RoutingModule } from './section12.routing';
-import { CustomdemoService } from './services/customdemo.service';
+import { CustomdemoService } from '../services/customdemo.service';
 import { FormsModule } from '@angular/forms';
 import { Section12LandingComponent } from './components/TemplateDrivenApproachDemos/section12-landing/section12-landing.component';
 import { HttpClientModule } from '@angular/common/http';

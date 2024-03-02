@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CustomdemoService } from '../../../services/customdemo.service';
+import { CustomdemoService } from '../../../../services/customdemo.service';
 
 @Component({
   selector: 'app-workingwithradiobutton-tda',

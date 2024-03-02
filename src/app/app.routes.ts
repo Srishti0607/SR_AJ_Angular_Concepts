@@ -55,6 +55,11 @@ export const routes: Routes = [
         path: 'section12',
         loadChildren: () =>
         import('./section12/section12.module').then((m)=>m.Section12Module),
+    },
+    {
+        path: 'section13',
+        loadChildren: () =>
+        import('./section13/section13.module').then((m)=>m.Section13Module),
     }
 ];
 

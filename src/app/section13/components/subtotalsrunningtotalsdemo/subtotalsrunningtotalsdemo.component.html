@@ -12,7 +12,7 @@
           <th>Running Total</th>
           <th>Running Order Total</th>
         </tr>
-        <tr *ngFor="let order of orderDetObj">
+        <!-- <tr *ngFor="let order of orderDetObj">
             <td>{{order.ORDERID}}</td>
             <td>{{order.ORDERDATE | date: 'medium'}}</td>
             <td>{{order.COMPANYNAME}}</td>
@@ -22,7 +22,21 @@
             <td>{{order.BILLAMOUNT | currency:'USD'}}</td>
             <td>{{order.RUNNINGAMT | currency:'USD'}}</td>
             <td>{{order.RUNNINGTOTAL | currency:'USD'}}</td>
-          </tr>
+          </tr> -->
+
+          @for(order of orderDetObj;track order){
+            <tr>
+              <td>{{order.ORDERID}}</td>
+              <td>{{order.ORDERDATE | date: 'medium'}}</td>
+              <td>{{order.COMPANYNAME}}</td>
+              <td>{{order.PRODUCTNAME}}</td>
+              <td>{{order.UNITPRICE | currency:'USD'}}</td>
+              <td>{{order.QUANTITY == '' ? 'Sub Total' : order.QUANTITY}}</td>
+              <td>{{order.BILLAMOUNT | currency:'USD'}}</td>
+              <td>{{order.RUNNINGAMT | currency:'USD'}}</td>
+              <td>{{order.RUNNINGTOTAL | currency:'USD'}}</td>
+            </tr>
+          }
 
 
     </table>    
