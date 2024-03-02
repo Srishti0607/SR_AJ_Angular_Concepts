@@ -12,9 +12,15 @@
         placeholder="Select" 
         appearance="outline">
 
-          <option *ngFor="let countryDet of countryDetObj" 
+          <!-- <option *ngFor="let countryDet of countryDetObj" 
           [ngValue]="countryDet">{{countryDet?.countryName}}
-          </option>
+          </option> -->
+
+          @for(countryDet of countryDetObj;track countryDet){
+            <option 
+            [ngValue]="countryDet">{{countryDet?.countryName}}
+            </option>
+          }
         </select>
       </div>
 
@@ -42,20 +48,32 @@
         placeholder="Select" 
         appearance="outline" 
         formControlName="upperAlpha">
-          <option *ngFor="let upLet of upperLetterObj" 
+          <!-- <option *ngFor="let upLet of upperLetterObj" 
+          value="{{upLet}}">{{upLet}}</option> -->
+          @for(upLet of upperLetterObj;track upLet){
+            <option 
           value="{{upLet}}">{{upLet}}</option>
+          }
         </select>
 
         <label class="col-sm-2">Lower Alphabets</label>
         <select class="btn col-sm-2 btn-sm dropdown-toggle btn-outline-info" data-toggle="dropdown" placeholder="Select" appearance="outline" formControlName="lowerAlpha" >
-          <option *ngFor="let lowLet of lowerLetterObj" 
+          <!-- <option *ngFor="let lowLet of lowerLetterObj" 
+          value="{{lowLet}}">{{lowLet}}</option> -->
+          @for(lowLet of lowerLetterObj;track lowlet){
+          <option 
           value="{{lowLet}}">{{lowLet}}</option>
+          }
         </select>
 
         <label class="col-sm-2">Numbers</label>
         <select class="col-sm-2 btn btn-sm dropdown-toggle btn-outline-info" data-toggle="dropdown" placeholder="Select" appearance="outline" formControlName="allNumbers">
-          <option *ngFor="let num of numberObj" 
+          <!-- <option *ngFor="let num of numberObj" 
+          value="{{num}}">{{num}}</option> -->
+          @for(num of numberObj;track num){
+          <option 
           value="{{num}}">{{num}}</option>
+          }
         </select>
       </div>
 
@@ -150,16 +168,27 @@
 
               <select class="btn col-sm-2 dropdown-toggle btn-outline-info" 
               formControlName="fromCurr" placeholder="Select" appearance="outline">
-                <option *ngFor="let curr of countryDetObj" value="{{curr?.currencyCode}}">
-                  {{curr?.currencyCode}}</option>
+                <!-- <option *ngFor="let curr of countryDetObj" value="{{curr?.currencyCode}}">
+                  {{curr?.currencyCode}}</option> -->
+                  @for(curr of countryDetObj;track curr){
+                    <option
+                    value="{{curr?.currencyCode}}">
+                      {{curr?.currencyCode}}</option>
+                  }
               </select>
 
               <select class="btn col-sm-2 dropdown-toggle btn-outline-info" 
               formControlName="toCurr" placeholder="Select" appearance="outline">
-                <option *ngFor="let curr of countryDetObj" 
+                <!-- <option *ngFor="let curr of countryDetObj" 
                 value="{{curr?.currencyCode}}">
                 {{curr?.currencyCode}}
-              </option>
+              </option> -->
+              @for(curr of countryDetObj;track curr){
+              <option
+                value="{{curr?.currencyCode}}">
+                {{curr?.currencyCode}}
+              </option> 
+              }
               </select>
 
               <button type="button" class="col-sm-2 btn btn-primary"
@@ -168,11 +197,19 @@
             </div>
 
 
-            <div *ngIf="conversionResult">
+            <!-- <div *ngIf="conversionResult">
               <span>{{reactiveForm.get('amount')!.value}} {{reactiveForm.get('fromCurr')!.value}} =</span><br />
               <span>{{finalAmount}} {{reactiveForm.get('toCurr')!.value}}</span><br />
               <span>1 {{reactiveForm.get('fromCurr')!.value}} = {{baseAmt}} {{reactiveForm.get('toCurr')!.value}}</span>
-            </div>
+            </div> -->
+
+            @if(conversionResult){
+              <div>
+                <span>{{reactiveForm.get('amount')!.value}} {{reactiveForm.get('fromCurr')!.value}} =</span><br />
+                <span>{{finalAmount}} {{reactiveForm.get('toCurr')!.value}}</span><br />
+                <span>1 {{reactiveForm.get('fromCurr')!.value}} = {{baseAmt}} {{reactiveForm.get('toCurr')!.value}}</span>
+              </div>
+            }
           
 
 

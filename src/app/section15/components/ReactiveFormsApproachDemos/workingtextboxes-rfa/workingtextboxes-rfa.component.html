@@ -6,14 +6,23 @@
             <div class="form-control row">
                 <label>Product ID</label>
                 <input type="number" formControlName="productId"/>
-                <span style="color:red" *ngIf="reactiveForm.hasError('required','productId')">Product ID is Required</span>
-                <span style="color:red" *ngIf="reactiveForm.hasError('min','productId')">Product ID Must be greater than 100</span>
+                <!-- <span style="color:red" *ngIf="reactiveForm.hasError('required','productId')">Product ID is Required</span> -->
+                @if(reactiveForm.hasError('required','productId')){
+                  <span style="color:red">Product ID is Required</span>
+                }
+                <!-- <span style="color:red" *ngIf="reactiveForm.hasError('min','productId')">Product ID Must be greater than 100</span> -->
+                @if(reactiveForm.hasError('min','productId'){
+                  <span style="color:red">Product ID Must be greater than 100</span>
+                })
               </div>
 
               <div class="form-control row">
                 <label>Product Name</label>
                 <input type="text" formControlName="productName" />
-                <span style="color:red" *ngIf="reactiveForm.hasError('required','productName')">Product Name is Required</span>
+                <!-- <span style="color:red" *ngIf="reactiveForm.hasError('required','productName')">Product Name is Required</span> -->
+                @if(reactiveForm.hasError('required','productName')){
+                  <span style="color:red">Product Name is Required</span>
+                }
                 <span style="color:red" *ngIf="reactiveForm.controls['productName'].hasError('minlength')">Minimum Length of name should be 5</span>
               </div>
   
