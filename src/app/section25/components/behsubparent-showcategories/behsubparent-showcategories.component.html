@@ -6,9 +6,14 @@
         <select class="btn col-sm-10 dropdown-toggle btn-outline-info" 
         formControlName="behData" (change)="updateInputs()" 
         data-toggle="dropdown" placeholder="Select" appearance="outline">
-          <option *ngFor="let category of allCategories" 
+          <!-- <option *ngFor="let category of allCategories" 
+          [ngValue]="category">{{category}}
+          </option> -->
+          @for(category of allCategories;track category){
+          <option
           [ngValue]="category">{{category}}
           </option>
+          }
         </select>
       </div>
 </div>

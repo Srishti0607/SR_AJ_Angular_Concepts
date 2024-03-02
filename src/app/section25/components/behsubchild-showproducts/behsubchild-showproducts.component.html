@@ -1,6 +1,6 @@
 <div class="container">
     <h4>Products Data Will be Shown Below once Category is Selected!!</h4>
-      <table border="1" id="customers" 
+      <!-- <table border="1" id="customers" 
       *ngIf="categoryWiseProducts.length != 0">
           <tr>
             <th>Title</th>
@@ -13,5 +13,35 @@
             <td>{{prod.price}}</td>
             <td>{{prod.description}}</td>        
           </tr>
-        </table>
+          @for(prod of categoryWiseProducts;track prod){
+            <tr>
+            <td>{{prod.title}}</td>
+            <td>{{prod.price}}</td>
+            <td>{{prod.description}}</td>        
+          </tr>
+          }
+        </table> -->
+
+        @if(categoryWiseProducts.length != 0){
+          <table border="1" id="customers" >
+              <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Description</th>
+              </tr>
+              <!-- <tr
+                *ngFor="let prod of categoryWiseProducts">
+                <td>{{prod.title}}</td>
+                <td>{{prod.price}}</td>
+                <td>{{prod.description}}</td>        
+              </tr> -->
+              @for(prod of categoryWiseProducts;track prod){
+                <tr>
+                <td>{{prod.title}}</td>
+                <td>{{prod.price}}</td>
+                <td>{{prod.description}}</td>        
+              </tr>
+              }
+            </table>
+        }
   </div>
