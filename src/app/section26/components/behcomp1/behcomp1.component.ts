@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CustomsharedService } from '../services/customshared.service';
+import { CustomsharedService } from '../../../services/customshared.service';
 @Component({
   selector: 'app-behcomp1',
   templateUrl: './behcomp1.component.html',

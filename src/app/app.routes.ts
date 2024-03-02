@@ -132,7 +132,7 @@ export const routes: Routes = [
             import('./section27/section27.module').then((m) => m.Section27Module),
     },
     {
-        path: 'section28',
+        path: '**',
         loadChildren: () =>
             import('./section28/section28.module').then((m) => m.Section28Module),
     }
