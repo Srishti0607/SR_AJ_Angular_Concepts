@@ -12,7 +12,7 @@
             minlength="5"
             #eName="ngModel" />
 
-            <div *ngIf="eName.invalid && (eName.dirty || eName.touched)"
+            <!-- <div *ngIf="eName.invalid && (eName.dirty || eName.touched)"
             class="alert alert-danger">
             
                   <div *ngIf="eName.errors?.['required']">
@@ -21,7 +21,29 @@
                   <div *ngIf="eName.errors?.['minlength']">
                     FirstName must be at least 5 characters long.
                   </div>            
-            </div>    
+            </div>     -->
+            @if(eName.invalid && (eName.dirty || eName.touched)){
+              <div
+            class="alert alert-danger">
+            
+                  <!-- <div *ngIf="eName.errors?.['required']">
+                    FirstName is required.
+                  </div> -->
+                  @if(eName.errors?.['required']){
+                    <div>
+                      FirstName is required.
+                    </div>
+                  }
+                  <!-- <div *ngIf="eName.errors?.['minlength']">
+                    FirstName must be at least 5 characters long.
+                  </div>             -->
+                  @if(eName.errors?.['minlength'){
+                    <div>
+                      FirstName must be at least 5 characters long.
+                    </div>
+                  }
+            </div>
+            }
         </div>
         <div class="form-control row">
             <label>Last Name</label>
@@ -31,7 +53,7 @@
             minlength="5"
             #lName="ngModel" />
 
-            <div *ngIf="lName.invalid && (lName.dirty || lName.touched)"
+            <!-- <div *ngIf="lName.invalid && (lName.dirty || lName.touched)"
             class="alert alert-danger">
             
                   <div *ngIf="lName.errors?.['required']">
@@ -40,7 +62,29 @@
                   <div *ngIf="lName.errors?.['minlength']">
                     LastName must be at least 5 characters long.
                   </div>            
-            </div>    
+            </div>     -->
+            @if(lName.invalid && (lName.dirty || lName.touched)){
+              <div
+            class="alert alert-danger">
+            
+                  <!-- <div *ngIf="lName.errors?.['required']">
+                    LastName is required.
+                  </div> -->
+                  @if(lName.errors?.['required']){
+                    <div >
+                      LastName is required.
+                    </div>
+                  }
+                  <!-- <div *ngIf="lName.errors?.['minlength']">
+                    LastName must be at least 5 characters long.
+                  </div>             -->
+                  @if(lName.errors?.['minlength']){
+                    <div >
+                      LastName must be at least 5 characters long.
+                    </div>
+                  }
+            </div>
+            }
         </div>
 
         <div class="form-control row">
@@ -96,7 +140,7 @@
             max="15000" 
             #eSal="ngModel"/>
 
-            <div *ngIf="eSal.invalid && (eSal.dirty || eSal.touched)"
+            <!-- <div *ngIf="eSal.invalid && (eSal.dirty || eSal.touched)"
             class="alert alert-danger">
         
           <div *ngIf="eSal.errors?.['required']">
@@ -108,7 +152,37 @@
           <div *ngIf="eSal.errors?.['max']">
             Salary must be below 15000.
           </div>
+        </div> -->
+        @if(eSal.invalid && (eSal.dirty || eSal.touched)){
+          <div
+            class="alert alert-danger">
+        
+          <!-- <div *ngIf="eSal.errors?.['required']">
+            Salary is required.
+          </div> -->
+          @if(eSal.errors?.['required']){
+            <div >
+              Salary is required.
+            </div>
+          }
+          <!-- <div *ngIf="eSal.errors?.['min']">
+            Salary must be above 500.
+          </div> -->
+          @if(eSal.errors?.['min']){
+            <div >
+              Salary must be above 500.
+            </div>
+          }
+          <!-- <div *ngIf="eSal.errors?.['max']">
+            Salary must be below 15000.
+          </div> -->
+          @if(eSal.errors?.['max']){
+            <div >
+              Salary must be below 15000.
+            </div>
+          }
         </div>
+        }
 
         </div>          
      </div>

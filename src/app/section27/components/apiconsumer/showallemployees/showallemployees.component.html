@@ -20,7 +20,7 @@ style="width: 200px"
         <th>Action</th>
     </tr>        
     
-    <tr *ngFor="let emp of allEmployees">
+    <!-- <tr *ngFor="let emp of allEmployees">
         <td>{{emp.id}}</td>
         <td>{{emp.firstName}}</td>
         <td>{{emp.lastName}}</td>
@@ -41,7 +41,31 @@ style="width: 200px"
             </span>  
 
         </td>
-    </tr>            
+    </tr>             -->
+    @for(emp of allEmployees;track emp){
+        <tr>
+            <td>{{emp.id}}</td>
+            <td>{{emp.firstName}}</td>
+            <td>{{emp.lastName}}</td>
+            <td>{{emp.title}}</td>
+            <td>{{emp.titleOfCourtesy}}</td>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.hasPassport}}</td>
+            <td>{{emp.dateOfJoining | date}}</td>
+            <td>{{emp.salary}}</td>
+            <td>
+                <span>                    
+                    <a class="nav-link" 
+                    [routerLink]="['/getEmployeeDetails',emp.id]">Details</a>|
+                    <a class="nav-link" 
+                    [routerLink]="['/updateEmployeeDetails',emp.id]">Edit</a>|
+                    <a class="nav-link" 
+                    [routerLink]="['/deleteEmployeeDetails',emp.id]">Delete</a>
+                </span>  
+    
+            </td>
+        </tr>
+    }
         </table>
 
       
