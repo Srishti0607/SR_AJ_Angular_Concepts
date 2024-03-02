@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { CustomdemoService } from 'src/app/services/customdemo.service';
+import { CustomdemoService } from '../../../../services/customdemo.service';
 @Component({
   selector: 'app-workingwithcheckboxes-rfa',
   templateUrl: './workingwithcheckboxes-rfa.component.html',

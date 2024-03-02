@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { CustomdemoService } from 'src/app/services/customdemo.service';
+import { CustomdemoService } from '../../../../services/customdemo.service';
 
 
 @Component({

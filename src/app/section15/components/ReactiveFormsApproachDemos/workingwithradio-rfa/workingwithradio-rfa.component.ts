@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { CustomdemoService } from 'src/app/services/customdemo.service';
+import { CustomdemoService } from '../../../../services/customdemo.service';
 
 
 @Component({
