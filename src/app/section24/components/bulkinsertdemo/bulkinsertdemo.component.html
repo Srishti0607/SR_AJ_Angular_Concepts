@@ -8,13 +8,22 @@
             <th>Action</th>
         </tr>
         <tbody formArrayName="customerFormArray">
-            <tr *ngFor="let control of getControls(); let i = index;" [formGroupName]="i">
+            <!-- <tr *ngFor="let control of getControls(); let i = index;" [formGroupName]="i">
                 <td><input type="text" formControlName="CustName"></td>
                 <td><input type="text" formControlName="CustPosition"></td>
                 <td><input type="text" formControlName="CustCity"></td>
                 <td><input type="text" formControlName="CustState"></td>
                 <td><i (click)="deleteRow(i)" class="my-icon fa fa-trash">Delete Row</i></td>
-            </tr>
+            </tr> -->
+            @for(control of getControls();track control let i = $index;){
+                <tr [formGroupName]="i">
+                    <td><input type="text" formControlName="CustName"></td>
+                    <td><input type="text" formControlName="CustPosition"></td>
+                    <td><input type="text" formControlName="CustCity"></td>
+                    <td><input type="text" formControlName="CustState"></td>
+                    <td><i (click)="deleteRow(i)" class="my-icon fa fa-trash">Delete Row</i></td>
+                </tr>
+            }
         </tbody>
 
 	</table>
