@@ -11,12 +11,20 @@
             </div>
             <div class="form-group row">
                 <label class="col-sm-2">Allowance Types</label>
-                <div class="btn-group-toggle" data-toggle="buttons" 
+                <!-- <div class="btn-group-toggle" data-toggle="buttons" 
                 *ngFor="let aType of allowanceTypes">
                     <input type="checkbox" name="aType" 
                     value="{{aType?.val}}" [checked]="aType?.checked"
                         (change)="calculateAmt(aType);">{{aType?.name}}
-                </div>
+                </div> -->
+
+                @for(aType of allowanceTypes;track aType){
+                    <div class="btn-group-toggle" data-toggle="buttons">
+                        <input type="checkbox" name="aType" 
+                        value="{{aType?.val}}" [checked]="aType?.checked"
+                            (change)="calculateAmt(aType);">{{aType?.name}}
+                    </div>
+                }
     
             </div>
             <div class="form-group row">

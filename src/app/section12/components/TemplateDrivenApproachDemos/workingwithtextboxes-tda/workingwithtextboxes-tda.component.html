@@ -1,17 +1,13 @@
 <div class="container">
-    <h4>Template Driven Form-Working With TextBoxes</h4>
-    <form name="frmInventory" #frmInv="ngForm">
-      <div class="form-control row">  
+  <h4>Template Driven Form-Working With TextBoxes</h4>
+  <form name="frmInventory" #frmInv="ngForm">
+    <div class="form-control row">
 
-        <div class="form-control row">
-            <label>Product ID</label>
-            <input type="number" name="productId" 
-            [(ngModel)]="productId" 
-            required 
-            min="100"
-            #pId="ngModel"/>    
-            
-            <div *ngIf="pId.invalid && (pId.dirty || pId.touched)"
+      <div class="form-control row">
+        <label>Product ID</label>
+        <input type="number" name="productId" [(ngModel)]="productId" required min="100" #pId="ngModel" />
+
+        <!-- <div *ngIf="pId.invalid && (pId.dirty || pId.touched)"
             class="alert alert-danger">
 
             <div *ngIf="pId.errors?.['required']">
@@ -20,18 +16,32 @@
             <div *ngIf="pId.errors?.['min']">
                 productId must be above 100.
               </div>
-            </div>      
+            </div>    -->
 
+        @if(pId.invalid && (pId.dirty || pId.touched)){
+        <div class="alert alert-danger">
+          @if(pId.errors?.['required']){
+          <div>
+            productId is required.
+          </div>
+          }
+
+          @if(pId.errors?.['min']){
+          <div>
+            productId must be above 100.
+          </div>
+          }
         </div>
-        <div class="form-control row">
-            <label>Product Name</label>
-            <input type="text" name="productName"            
-            [(ngModel)]="productName" 
-            required
-            minlength="5"
-            #pName="ngModel" />
+        }
 
-            <div *ngIf="pName.invalid && (pName.dirty || pName.touched)"
+
+
+      </div>
+      <div class="form-control row">
+        <label>Product Name</label>
+        <input type="text" name="productName" [(ngModel)]="productName" required minlength="5" #pName="ngModel" />
+
+        <!-- <div *ngIf="pName.invalid && (pName.dirty || pName.touched)"
             class="alert alert-danger">
             
                   <div *ngIf="pName.errors?.['required']">
@@ -41,23 +51,31 @@
                     productName must be at least 5 characters long.
                   </div>
             
-            </div>  
-    
+            </div>   -->
 
+        @if(pName.invalid && (pName.dirty || pName.touched)){
+        <div class="alert alert-danger">
 
+          @if(pName.errors?.['required']){
+          <div>
+            productName is required.
+          </div>
+          }
 
+          @if(pName.errors?.['minlength']){
+          <div>
+            productName must be at least 5 characters long.
+          </div>
+          }
         </div>
+        }
+      </div>
 
-        <div class="form-control row">
-            <label>Cost</label>
-            <input type="number" name="cost" 
-            [(ngModel)]="cost" 
-            required 
-            min="500" 
-            max="5000" 
-            #pCost="ngModel"/>
+      <div class="form-control row">
+        <label>Cost</label>
+        <input type="number" name="cost" [(ngModel)]="cost" required min="500" max="5000" #pCost="ngModel" />
 
-            <div *ngIf="pCost.invalid && (pCost.dirty || pCost.touched)"
+        <!-- <div *ngIf="pCost.invalid && (pCost.dirty || pCost.touched)"
             class="alert alert-danger">
         
           <div *ngIf="pId.errors?.['required']">
@@ -69,24 +87,34 @@
           <div *ngIf="pCost.errors?.['max']">
             productId must be below 5000.
           </div>
+        </div> -->
+
+        @if(pCost.invalid && (pCost.dirty || pCost.touched)){
+        <div class="alert alert-danger">
+
+          @if(pId.errors?.['required']){
+          <div>
+            productCost is required.
+          </div>
+          }
+
+          @if(pCost.errors?.['max']){
+          <div>
+            productId must be below 5000.
+          </div>
+          }
         </div>
-
-        </div>
-
-
-  <div class="form-control row">
-            <label>Quantity</label>
-            <input type="number" name="qty" 
-            [(ngModel)]="quantity" 
-            required 
-            min="5" 
-            max="20" 
-            #pQty="ngModel"/>  
+        }
+      </div>
 
 
-            <div *ngIf="pQty.invalid && (pQty.dirty || pQty.touched)"
-            class="alert alert-danger">
-        
+      <div class="form-control row">
+        <label>Quantity</label>
+        <input type="number" name="qty" [(ngModel)]="quantity" required min="5" max="20" #pQty="ngModel" />
+
+
+        <!-- <div *ngIf="pQty.invalid && (pQty.dirty || pQty.touched)" class="alert alert-danger">
+
           <div *ngIf="pQty.errors?.['required']">
             Quantity is required.
           </div>
@@ -96,31 +124,54 @@
           <div *ngIf="pQty.errors?.['max']">
             Quantity must be below 20.
           </div>
-        </div>
+        </div> -->
 
-  </div>
+        @if(pQty.invalid && (pQty.dirty || pQty.touched)){
+          <div class="alert alert-danger">
 
-  <div class="form-control row">
-    <label>Bill Amount</label>
-    <input name="billAmt" disabled="true" [(ngModel)]="billAmt"/>           
-  </div>
+            @if(pQty.errors?.['required']){
+              <div>
+                Quantity is required.
+              </div>
+            }
+
+            @if(pQty.errors?.['min']){
+              <div>
+                Quantity must be above 5.
+              </div>
+            }
+
+            @if(pQty.errors?.['max']){
+              <div>
+                Quantity must be below 20.
+              </div>
+            }
+          </div>
+        }
+
+      </div>
+
+      <div class="form-control row">
+        <label>Bill Amount</label>
+        <input name="billAmt" disabled="true" [(ngModel)]="billAmt" />
+      </div>
 
 
 
-<div class="form-control row">
-    <label>Discount</label>
-    <input name="discount" disabled="true" [(ngModel)]="discount"/> 
-  </div>
+      <div class="form-control row">
+        <label>Discount</label>
+        <input name="discount" disabled="true" [(ngModel)]="discount" />
+      </div>
 
-<div class="form-control row">
-    <label>Net Bill Amount</label>
-    <input name="netBillAmt" disabled="true" [(ngModel)]="netBillAmt"/>  
-  </div>
+      <div class="form-control row">
+        <label>Net Bill Amount</label>
+        <input name="netBillAmt" disabled="true" [(ngModel)]="netBillAmt" />
+      </div>
 
-  <div class="form-control row">
-    <button type="button" [disabled]="frmInv.invalid" (click)="calculateVal()">Calculate</button>
-</div>
+      <div class="form-control row">
+        <button type="button" [disabled]="frmInv.invalid" (click)="calculateVal()">Calculate</button>
+      </div>
 
-     </div>
-     </form>
+    </div>
+  </form>
 </div>

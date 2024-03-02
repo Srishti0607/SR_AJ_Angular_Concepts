@@ -13,10 +13,17 @@
         [(ngModel)]="countryCodes" 
         placeholder="Select" 
         appearance="outline">
-          <option *ngFor="let countryDet of countryDetObj" 
+          <!-- <option *ngFor="let countryDet of countryDetObj" 
           [ngValue]="countryDet">
           {{countryDet?.countryName}}
-          </option>
+          </option> -->
+
+          @for(countryDet of countryDetObj;track countryDet){
+            <option 
+            [ngValue]="countryDet">
+            {{countryDet?.countryName}}
+            </option>
+          }
         </select>
       </div>
 
@@ -49,22 +56,36 @@
         <select class="btn col-sm-2 btn-sm dropdown-toggle btn-outline-info" 
         data-toggle="dropdown" placeholder="Select" appearance="outline" 
         [(ngModel)]="upperAlpha" name="upperAlpha">
-          <option *ngFor="let upLet of upperLetterObj" 
+          <!-- <option *ngFor="let upLet of upperLetterObj" 
+          value="{{upLet}}">{{upLet}}</option> -->
+
+          @for(upLet of upperLetterObj;track upLet){
+            <option 
           value="{{upLet}}">{{upLet}}</option>
+          }
         </select>
 
         <label class="col-sm-2">Lower Alphabets</label>
         <select class="btn col-sm-2 btn-sm dropdown-toggle btn-outline-info" 
         data-toggle="dropdown" placeholder="Select" appearance="outline">
-          <option *ngFor="let loLet of lowerLetterObj" 
+        @for(loLet of lowerLetterObj;track loLet){
+          <option 
           value="{{loLet}}">{{loLet}}</option>
+        }
+          <!-- <option *ngFor="let loLet of lowerLetterObj" 
+          value="{{loLet}}">{{loLet}}</option> -->
         </select>
 
         <label class="col-sm-2">Numbers</label>
         <select class="col-sm-2 btn btn-sm dropdown-toggle btn-outline-info" 
         data-toggle="dropdown" placeholder="Select" appearance="outline">
-          <option *ngFor="let num of numberObj" 
+          <!-- <option *ngFor="let num of numberObj" 
+          value="{{num}}">{{num}}</option> -->
+
+          @for(num of numberObj;track num){
+            <option
           value="{{num}}">{{num}}</option>
+          }
         </select>
     </div>
 
