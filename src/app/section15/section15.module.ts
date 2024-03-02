@@ -9,6 +9,7 @@ import { WorkingwithlistboxRfaComponent } from './components/ReactiveFormsApproa
 import { WorkingwithradioRfaComponent } from './components/ReactiveFormsApproachDemos/workingwithradio-rfa/workingwithradio-rfa.component';
 import { CustomdemoService } from '../services/customdemo.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
  
 
 @NgModule({
@@ -23,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     Section15RoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers:[
     CustomdemoService

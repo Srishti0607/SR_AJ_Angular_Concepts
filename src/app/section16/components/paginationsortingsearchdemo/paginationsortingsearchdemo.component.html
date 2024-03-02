@@ -1,27 +1,26 @@
 
 <form [formGroup]="reactiveForm" class="container">
-
     <div class="form-group row">
-    
-     
-
-
     <table border="1" id="customers">
         <tr>
           <th>User <i (click)="onSortClick($event,'User')" class="my-icon fa fa-chevron-up"></i></th>
           <th>Auth Id <i (click)="onSortClick($event,'AuthID')" class="my-icon fa fa-chevron-up"></i></th>
           <th>Phone <i (click)="onSortClick($event,'Mobile')" class="my-icon fa fa-chevron-up"></i></th>
         </tr>
-        <tr
+        <!-- <tr
         *ngFor="let lock of locked | paginate: config; let i = index; let first = first; let last = last;">
         <td>{{lock.User}}</td>
         <td>{{lock.AuthID}}</td>
         <td>{{lock.Mobile}}</td>
+      </tr> -->
+      @for(lock of locked | paginate: config; track lock; let i = $index; let first = $first; let last = $last;){
+        <tr>
+        <td>{{lock.User}}</td>
+        <td>{{lock.AuthID}}</td>
+        <td>{{lock.Mobile}}</td>
       </tr>
+      }
         </table>
-
-       
-    
     </div>    
 
     Items Per Page: 
@@ -34,15 +33,11 @@
     <option value="10">10</option>
     <option value="15">15</option>
   </select>
-
     </form>
-
     <div>
         <div class="form-group row">
             <pagination-controls (pageChange)="onPageChange($event)">
-
             </pagination-controls>
-
 	</div>
 </div>
 

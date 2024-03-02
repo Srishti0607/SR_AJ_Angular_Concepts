@@ -23,10 +23,17 @@
                 formControlName="initialList" 
                 [multiple]="isMultiple" 
                 size="6">
-                  <option *ngFor="let aType of allowanceTypes;let i = index" 
+                  <!-- <option *ngFor="let aType of allowanceTypes;let i = index" 
+                  value="{{aType?.val}}-{{aType?.name}}-{{i}}">
+                  {{aType?.name}}
+                </option> -->
+
+                @for(aType of allowanceTypes;track aType;let i = $index){
+                  <option
                   value="{{aType?.val}}-{{aType?.name}}-{{i}}">
                   {{aType?.name}}
                 </option>
+                }
                 </select>
               </div> 
 
@@ -46,10 +53,17 @@
                 [multiple]="isMultiple" 
                 size="6">
                 <option>Please Select</option>
-                <option *ngFor="let aType of finalObj;let i = index" 
+                <!-- <option *ngFor="let aType of finalObj;let i = index" 
+                value="{{aType?.val}}-{{aType?.name}}-{{i}}">
+                {{aType?.name}}
+              </option> -->
+
+              @for(aType of finalObj;track aType;let i = $index){
+                <option 
                 value="{{aType?.val}}-{{aType?.name}}-{{i}}">
                 {{aType?.name}}
               </option>
+              }
               </select>
               </div>
 

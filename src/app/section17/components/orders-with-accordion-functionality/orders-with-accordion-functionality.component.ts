@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { CustomdemoService } from '../services/customdemo.service';
+import { CustomdemoService } from '../../../services/customdemo.service';
+
 @Component({
   selector: 'app-orders-with-accordion-functionality',
   templateUrl: './orders-with-accordion-functionality.component.html',

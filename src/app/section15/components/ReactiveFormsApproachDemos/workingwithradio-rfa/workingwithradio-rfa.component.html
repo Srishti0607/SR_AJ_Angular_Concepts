@@ -11,11 +11,19 @@
 
             <span style="color:red" *ngIf="reactiveForm.hasError('required','salary')">Salary is required *</span>
             <span style="color:red" *ngIf="reactiveForm.hasError('min','salary')">Salary must be minimum 1000 *</span>
+
+            @if(reactiveForm.hasError('required','salary')){
+                <span style="color:red">Salary is required *</span>
+            }@else if(reactiveForm.hasError('min','salary')){
+                <span style="color:red">Salary must be minimum 1000 *</span>
+            }
+            
         </div>
+
 
         <div class="form-group row">
             <label class="col-sm-2" for="tax">Allowance Types</label>
-            <div class="btn-group btn-group-toggle" 
+            <!-- <div class="btn-group btn-group-toggle" 
             *ngFor="let aType of allowanceTypesObj">
             
                 <input type="radio" 
@@ -24,8 +32,23 @@
                 formControlName="allowancePercentage" 
 				(change)="calculateAmt();">
 			{{aType?.name}}
-            </div>      
-            <span style="color:red" *ngIf="reactiveForm.controls['allowancePercentage'].errors!['required']">Select Allowance Type *</span>      
+            </div>     -->
+            
+            @for(aType of allowanceTypesObj;track aType){
+                <div class="btn-group btn-group-toggle">
+            
+                <input type="radio" 
+                name="allowancePercentage" 
+                value="{{aType?.name}}-{{aType?.val}}" 
+                formControlName="allowancePercentage" 
+				(change)="calculateAmt();">
+			{{aType?.name}}
+            </div>  
+            }
+            <!-- <span style="color:red" *ngIf="reactiveForm.controls['allowancePercentage'].errors!['required']">Select Allowance Type *</span>       -->
+            @if(reactiveForm.controls['allowancePercentage'].errors!['required']){
+                <span style="color:red">Select Allowance Type *</span>      
+            }
         </div>
 
         <div class="form-group row">

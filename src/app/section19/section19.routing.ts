@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { ExportToFileFormatsDemoComponent } from './components/export-to-file-formats-demo/export-to-file-formats-demo.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: ExportToFileFormatsDemoComponent
-  }
+  // {
+  //   path: '',
+  //   component: ExportToFileFormatsDemoComponent
+  // }
 ];
 
 @NgModule({

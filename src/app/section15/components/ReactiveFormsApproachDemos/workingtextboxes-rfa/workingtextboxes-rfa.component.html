@@ -11,9 +11,9 @@
                   <span style="color:red">Product ID is Required</span>
                 }
                 <!-- <span style="color:red" *ngIf="reactiveForm.hasError('min','productId')">Product ID Must be greater than 100</span> -->
-                @if(reactiveForm.hasError('min','productId'){
+                @if(reactiveForm.hasError('min','productId')){
                   <span style="color:red">Product ID Must be greater than 100</span>
-                })
+                }
               </div>
 
               <div class="form-control row">
@@ -23,22 +23,41 @@
                 @if(reactiveForm.hasError('required','productName')){
                   <span style="color:red">Product Name is Required</span>
                 }
-                <span style="color:red" *ngIf="reactiveForm.controls['productName'].hasError('minlength')">Minimum Length of name should be 5</span>
+                <!-- <span style="color:red" *ngIf="reactiveForm.controls['productName'].hasError('minlength')">Minimum Length of name should be 5</span> -->
+                @if(reactiveForm.controls['productName'].hasError('minlength')){
+                  <span style="color:red">Minimum Length of name should be 5</span>
+                }
               </div>
   
    <div class="form-control row">
                 <label>Cost</label>
                 <input type="number" formControlName="cost" />
-                <span style="color:red" *ngIf="reactiveForm.hasError('required','cost')">Cost is Required</span>
-                <span style="color:red" *ngIf="reactiveForm.hasError('min','cost')">Cost Must be greater than 500</span>
+                <!-- <span style="color:red" *ngIf="reactiveForm.hasError('required','cost')">Cost is Required</span>
+                <span style="color:red" *ngIf="reactiveForm.hasError('min','cost')">Cost Must be greater than 500</span> -->
+                @if(reactiveForm.hasError('required','cost')){
+                  <span style="color:red">Cost is Required</span>
+
+                }
+                @if(reactiveForm.hasError('min','cost')){
+                  <span style="color:red">Cost Must be greater than 500</span>
+                }
               </div>
   
   <div class="form-control row">
                 <label>Quantity</label>
                 <input type="number" formControlName="quantity" />
-                <span style="color:red" *ngIf="reactiveForm.hasError('required','quantity')">Quantity is Required</span>
+                <!-- <span style="color:red" *ngIf="reactiveForm.hasError('required','quantity')">Quantity is Required</span>
                 <span style="color:red" *ngIf="reactiveForm.hasError('min','quantity')">Quantity Must be greater than 5</span> 
-                <span style="color:red" *ngIf="reactiveForm.hasError('max','quantity')">Max Quantity must be below 20 </span>                           
+                <span style="color:red" *ngIf="reactiveForm.hasError('max','quantity')">Max Quantity must be below 20 </span>                            -->
+                @if(reactiveForm.hasError('required','quantity')){
+                  <span style="color:red">Quantity is Required</span> 
+                }
+                @if(reactiveForm.hasError('min','quantity')){
+                  <span style="color:red">Quantity Must be greater than 5</span>  
+                }
+                @if(reactiveForm.hasError('max','quantity')){
+                  <span style="color:red">Max Quantity must be below 20 </span>                           
+                }
               </div>
 
               <div class="form-control row">

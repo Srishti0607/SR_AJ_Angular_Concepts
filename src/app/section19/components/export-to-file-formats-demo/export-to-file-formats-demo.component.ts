@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import * as XLSX from 'xlsx';
 import { jsPDF } from "jspdf";
-import { ExportToCsv } from 'export-to-csv';
-import { ExportAsService, ExportAsConfig } from 'ngx-export-as';
-import { CustomdemoService } from '../services/customdemo.service';
+// import { ExportToCsv } from 'export-to-csv';
+// import { ExportAsService, ExportAsConfig } from 'ngx-export-as';
+// import { CustomdemoService } from '../services/customdemo.service';
 
 
 /*
@@ -22,58 +22,60 @@ npm i ngx-export-as
 })
 export class ExportToFileFormatsDemoComponent {
 
-  constructor(private landingSrv: CustomdemoService,
-    private exportAsService: ExportAsService) { }
+  constructor(
+    // private landingSrv: CustomdemoService,
+    // private exportAsService: ExportAsService
+    ) { }
 
     countryDetObj: any = []; //store country details getting from service
 
-    exportAsConfigTxt: ExportAsConfig = {
-      type: 'txt', // the type you want to download
-      elementIdOrContent: 'customers',
-    }
+    // exportAsConfigTxt: ExportAsConfig = {
+    //   type: 'txt', // the type you want to download
+    //   elementIdOrContent: 'customers',
+    // }
   
-    exportAsConfigPng: ExportAsConfig = {
-      type: 'png', // the type you want to download
-      elementIdOrContent: 'customers',
-    }
-    exportAsConfigJSON: ExportAsConfig = {
-      type: 'json', // the type you want to download
-      elementIdOrContent: 'customers',
-    }
+    // exportAsConfigPng: ExportAsConfig = {
+    //   type: 'png', // the type you want to download
+    //   elementIdOrContent: 'customers',
+    // }
+    // exportAsConfigJSON: ExportAsConfig = {
+    //   type: 'json', // the type you want to download
+    //   elementIdOrContent: 'customers',
+    // }
 
 
 
 
   ngOnInit(): void {
-    this.getCountryCodesData();
+    // this.getCountryCodesData();
   }
 
-getCountryCodesData() {
+// getCountryCodesData() {
     
-    this.landingSrv.getCountryData(1, 10).subscribe((data: any) => {
-      if (data) {
-        this.countryDetObj = data;
-      }
-    });
-}
+//     this.landingSrv.getCountryData(1, 10).subscribe((data: any) => {
+//       if (data) {
+//         this.countryDetObj = data;
+//       }
+//     });
+// }
 
-exportTxt(){
-  this.exportAsService.save(this.exportAsConfigTxt, 'Country').subscribe(() => {
-    // save started
-  }); 
-}
+// exportTxt(){
+//   this.exportAsService.save(this.exportAsConfigTxt, 'Country').subscribe(() => {
+//     // save started
+//   }); 
+// }
 
-exportPNG() {
-  this.exportAsService.save(this.exportAsConfigPng, 'Country').subscribe(() => {
-    // save started
-  });   
-}
+// exportPNG() {
+//   this.exportAsService.save(this.exportAsConfigPng, 'Country').subscribe(() => {
+//     // save started
+//   });   
+// }
 
-exportJson(){
-  this.exportAsService.save(this.exportAsConfigJSON, 'Country').subscribe(() => {
-    // save started
-  }); 
-}
+// exportJson(){
+//   this.exportAsService.save(this.exportAsConfigJSON, 'Country').subscribe(() => {
+//     // save started
+//   }); 
+// }
 
 exportPDF() {
   const doc = new jsPDF("p", "pt", "a4");
@@ -87,23 +89,23 @@ exportPDF() {
   });
 }
 
-exportToCSV() {
-  const options = { 
-    fieldSeparator: ',',
-    quoteStrings: '"',
-    decimalSeparator: '.',
-    showLabels: true, 
-    showTitle: true,
-    title: 'Country CSV',
-    useTextFile: false,
-    useBom: true,
-    useKeysAsHeaders: true,
-  };
+// exportToCSV() {
+//   const options = { 
+//     fieldSeparator: ',',
+//     quoteStrings: '"',
+//     decimalSeparator: '.',
+//     showLabels: true, 
+//     showTitle: true,
+//     title: 'Country CSV',
+//     useTextFile: false,
+//     useBom: true,
+//     useKeysAsHeaders: true,
+//   };
  
-const csvExporter = new ExportToCsv(options);
+// const csvExporter = new ExportToCsv(options);
  
-csvExporter.generateCsv(this.countryDetObj);
-}
+// csvExporter.generateCsv(this.countryDetObj);
+// }
 
 exportToExcel() {
 

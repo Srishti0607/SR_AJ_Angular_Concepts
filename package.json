@@ -20,9 +20,14 @@
     "@angular/platform-browser-dynamic": "^17.2.0",
     "@angular/router": "^17.2.0",
     "bootstrap": "^5.2.3",
+    "export-to-csv": "^1.2.3",
     "json-server": "^1.0.0-alpha.23",
+    "jspdf": "^2.5.1",
+    "ngx-export-as": "^1.16.0",
+    "ngx-pagination": "^6.0.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "xlsx": "^0.18.5",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {

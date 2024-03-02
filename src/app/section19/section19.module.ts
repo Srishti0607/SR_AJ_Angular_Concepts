@@ -7,7 +7,7 @@ import { ExportToFileFormatsDemoComponent } from './components/export-to-file-fo
 
 @NgModule({
   declarations: [
-  ExportToFileFormatsDemoComponent
+  // ExportToFileFormatsDemoComponent
   ],
   imports: [
     CommonModule,
