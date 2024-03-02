@@ -2,7 +2,7 @@
 <br>
 {{username}}
 
-<div class="card d-flex align-items-center" 
+<!-- <div class="card d-flex align-items-center" 
 *ngFor="let prod of products">
     <h5 class="card-title">{{prod.title | capital}}</h5>
     <div class="card-body" >
@@ -19,5 +19,25 @@
         </li>
       </ul>
     </div>
+  </div> -->
+
+  @for(prod of products;track prod){
+    <div class="card d-flex align-items-center">
+    <h5 class="card-title">{{prod.title | capital}}</h5>
+    <div class="card-body" >
+     
+      <ul>
+        <li>
+          {{prod.title}}
+        </li>  
+        <li>
+            {{prod.description | lengthLimit:30}}
+          </li>  
+        <li>
+            {{prod.rating.rate | rating}}
+        </li>
+      </ul>
+    </div>
   </div>
+  }
 

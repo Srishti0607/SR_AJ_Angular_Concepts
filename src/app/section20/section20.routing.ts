@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RatingPipe } from './components/custompipesdemos/rating.pipe';
+import { TestcustompipesComponent } from './components/custompipesdemos/testcustompipes/testcustompipes.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: RatingPipe
+    component: TestcustompipesComponent
   }
 ];
 
