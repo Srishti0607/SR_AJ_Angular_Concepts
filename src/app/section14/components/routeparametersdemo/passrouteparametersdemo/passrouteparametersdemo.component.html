@@ -4,12 +4,20 @@
             <th>Category</th>
             <th>Action</th>
         </tr>
-        <tr *ngFor="let category of categoriesObj">
+        <!-- <tr *ngFor="let category of categoriesObj">
             <td>{{category}}</td>
             <td>
                 <i class="fa fa-eye" aria-hidden="true" 
-                [routerLink]="['/product',category]"></i>                 
-                  
-        </tr>
+                [routerLink]="['/product',category]"></i>  
+        </tr> -->
+
+        @for(category of categoriesObj;track category){
+            <tr>
+                <td>{{category}}</td>
+                <td>
+                    <i class="fa fa-eye" aria-hidden="true" 
+                    [routerLink]="['product',category]"></i>  
+            </tr>
+        }
     </table>
 </div>

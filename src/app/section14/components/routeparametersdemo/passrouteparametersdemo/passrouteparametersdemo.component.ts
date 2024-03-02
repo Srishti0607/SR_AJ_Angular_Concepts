@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CustomsharedService } from '../../services/customshared.service';
+import { CustomsharedService } from '../../../../services/customshared.service';
 @Component({
   selector: 'app-passrouteparametersdemo',
   templateUrl: './passrouteparametersdemo.component.html',

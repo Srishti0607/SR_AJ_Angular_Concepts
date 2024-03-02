@@ -7,15 +7,23 @@
             <th>Price</th>
             <th>Description</th>
           </tr>
-          <tr
+          <!-- <tr
             *ngFor="let product of categoryWiseProductsObj">
             <td>{{product.title}}</td>
             <td>{{product.price}}</td>
             <td>{{product.description}}</td>        
+          </tr> -->
+
+          @for(product of categoryWiseProductsObj;track product){
+            <tr>
+            <td>{{product.title}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.description}}</td>        
           </tr>
+          }
         </table>
         <button type="button"  
-        [routerLink]="['/passroutingparameters']">
+        [routerLink]="['/section14']">
         Back
       </button>
   </div>
