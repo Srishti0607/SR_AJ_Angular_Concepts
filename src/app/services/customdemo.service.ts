@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Config } from '../../Config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomdemoService {
+  baseURL = Config.baseUrl;
 
   private currencyDetBaseURL: string = 'https://api.exchangerate.host'
 
@@ -13,7 +15,8 @@ export class CustomdemoService {
   constructor(private http: HttpClient) { }
 
   getCountryDetails() {
-    let url = "assets/CountryDet.json"
+    // let url = "assets/CountryDet.json"
+    let url = this.baseURL+'getCountries';
     return this.http.get(url);
   }
 
@@ -28,13 +31,15 @@ export class CustomdemoService {
 
    //Get users
    getUsers() {
-    let url = "assets/USERS.json"
+    // let url = "assets/USERS.json";
+    let url = this.baseURL+'getUsers'
     return this.http.get(url);
   }
 
   //Get Order details from JSON
   getOrderData() {
-    let url = "assets/Orders_Details.json"
+    // let url = "assets/Orders_Details.json"
+    let url = this.baseURL+'getOrderDetails';
     return this.http.get(url);
   }
 

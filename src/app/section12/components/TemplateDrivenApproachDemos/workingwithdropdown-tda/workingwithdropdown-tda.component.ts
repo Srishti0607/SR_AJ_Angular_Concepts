@@ -46,7 +46,7 @@ allNumbers: any;
    getCountryCodesData() {
     this.landingSrv.getCountryDetails().subscribe((data: any) => {
       if (data) {
-        this.countryDetObj = data['countries']['country'];
+        this.countryDetObj = data;
       }
     });
 
