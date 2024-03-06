@@ -108,7 +108,7 @@ export class CRUDDemoListViewComponent {
       "firstName": this.reactiveForm.get('empFirst')!.value,
       "gender": this.reactiveForm.get('gender')!.value,
       "hasPassport": this.reactiveForm.get('empHasPass')!.value,
-      "id": this.reactiveForm.get('empId')!.value,
+      "empid": this.reactiveForm.get('empId')!.value,
       "lastName": this.reactiveForm.get('empLast')!.value,
       "salary": this.reactiveForm.get('empSal')!.value,
       "title": this.reactiveForm.get('empTitle')!.value,

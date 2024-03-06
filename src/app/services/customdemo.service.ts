@@ -26,7 +26,7 @@ export class CustomdemoService {
 
 
   getAllowanceTypes():Observable<any[]>{
-    return this.http.get<any[]>('http://localhost:3000/allowancetypes');
+    return this.http.get<any[]>(this.baseURL+ '/getAllowanceType');
   }
 
    //Get users
@@ -57,11 +57,11 @@ export class CustomdemoService {
 
    //get Data for Employee
    getEmpData() {  
-    return this.http.get('http://localhost:3000/employee')
+    return this.http.get(this.baseURL+'/getCrudEmployees')
   }
 
   insertEmpData(payload: any){    
-    return this.http.post('http://localhost:3000/employee',payload)
+    return this.http.post(this.baseURL+'/insertEmployee',payload)
   }
 
   updateEmpData(payload: any,id: string){
