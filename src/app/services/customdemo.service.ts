@@ -69,13 +69,13 @@ export class CustomdemoService {
       .set('Content-Type', 'application/json');
    
     
-    return this.http.put('http://localhost:3000/employee/'+id,payload,{
+    return this.http.put(this.baseURL+'updateEmployee/'+id,payload,{
       headers
     });
   }
 
   deleteEmpData(id:any){
-    return this.http.delete('http://localhost:3000/employee/'+id);
+    return this.http.delete(this.baseURL+'deleteEmployee/'+id);
   }
 
 //bulk Insert
