@@ -44,12 +44,14 @@ export class CustomdemoService {
   }
 
   getNewOrderData() {
-    let url = "assets/OrderWiseOrderDetails.json"
+    // let url = "assets/OrderWiseOrderDetails.json"
+    let url = this.baseURL+'getOrderWiseOrderDet';
     return this.http.get(url);
   }
 
   getEmployeeData() {
-    let url = "assets/Employees.json"
+    let url = this.baseURL+'getEmployeesList';
+    // let url = "assets/Employees.json"
     return this.http.get(url);
   }
 

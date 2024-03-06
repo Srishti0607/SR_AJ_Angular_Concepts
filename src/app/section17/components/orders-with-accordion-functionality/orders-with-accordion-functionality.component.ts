@@ -20,8 +20,13 @@ export class OrdersWithAccordionFunctionalityComponent {
   getNewOrderData() {
     this.landingSrv.getNewOrderData().subscribe((data: any) => {
       if (data) {
-        this.orderDetObj = data[0]['order'];
-        this.grandTotal = data[0]['GrandTotal'];
+        // this.orderDetObj = data[0]['order'];
+        this.orderDetObj = data;
+        let sum = 0;
+        this.orderDetObj.forEach((data: any) => {
+          sum = sum + data?.SubTotal;
+       });   
+        this.grandTotal = sum;
       }
     })
   }
