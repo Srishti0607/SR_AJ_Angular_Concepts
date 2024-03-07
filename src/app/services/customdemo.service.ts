@@ -75,7 +75,7 @@ export class CustomdemoService {
   }
 
   deleteEmpData(id:any){
-    return this.http.delete(this.baseURL+'deleteEmployee/'+id);
+    return this.http.delete(this.baseURL+'deleteEmployee/'+id,{responseType: 'text'});
   }
 
 //bulk Insert

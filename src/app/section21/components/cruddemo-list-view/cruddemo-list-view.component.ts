@@ -76,15 +76,15 @@ export class CRUDDemoListViewComponent {
   createEmployeeForm(employee: any, opr: any) {
     return this.formBuilder.group({
       id: [{ value: employee._id, disabled: opr == 'I' ? false : true }, [Validators.required]],
-      empid: [{ value: employee.EMPID, disabled: opr == 'I' ? false : true }, [Validators.required]],
-      firstName: [{ value: employee.FIRSTNAME, disabled: opr == 'I' ? false : true }, [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
-      lastName: [{ value: employee.LASTNAME, disabled: opr == 'I' ? false : true }, [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
-      title: [{ value: employee.TITLE, disabled: opr == 'I' ? false : true }, [Validators.required]],
-      titleOfCourtesy: [{ value: employee.TITLEOFCOURTESY, disabled: opr == 'I' ? false : true }, [Validators.required]],
-      gender: [{ value: employee.GENDER, disabled: opr == 'I' ? false : true }, [Validators.required]],
-      hasPassport: [{ value: employee.HASPASSPORT, disabled: opr == 'I' ? false : true }, [Validators.required]],
-      dateOfJoining: [{ value: employee.DATEOFJOINING, disabled: opr == 'I' ? false : true }, [Validators.required]],
-      salary: [{ value: employee.SALARY, disabled: opr == 'I' ? false : true }, [Validators.required]]
+      EMPID: [{ value: employee.EMPID, disabled: opr == 'I' ? false : true }, [Validators.required]],
+      FIRSTNAME: [{ value: employee.FIRSTNAME, disabled: opr == 'I' ? false : true }, [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
+      LASTNAME: [{ value: employee.LASTNAME, disabled: opr == 'I' ? false : true }, [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
+      TITLE: [{ value: employee.TITLE, disabled: opr == 'I' ? false : true }, [Validators.required]],
+      TITLEOFCOURTESY: [{ value: employee.TITLEOFCOURTESY, disabled: opr == 'I' ? false : true }, [Validators.required]],
+      GENDER: [{ value: employee.GENDER, disabled: opr == 'I' ? false : true }, [Validators.required]],
+      HASPASSPORT: [{ value: employee.HASPASSPORT, disabled: opr == 'I' ? false : true }, [Validators.required]],
+      DATEOFJOINING: [{ value: employee.DATEOFJOINING, disabled: opr == 'I' ? false : true }, [Validators.required]],
+      SALARY: [{ value: employee.SALARY, disabled: opr == 'I' ? false : true }, [Validators.required]]
     });
   }
 
@@ -150,7 +150,7 @@ export class CRUDDemoListViewComponent {
   updateForm(index: any) {
     console.log((this.employeeForm.get('employeeArray') as FormArray).controls)
     this.landingSrv.updateEmpData(JSON.stringify((this.employeeForm.get('employeeArray') as FormArray).controls[index].value),
-      (this.employeeForm.get('employeeArray') as FormArray).controls[index].value['empid']).subscribe((data: any) => {
+      (this.employeeForm.get('employeeArray') as FormArray).controls[index].value['EMPID']).subscribe((data: any) => {
         if (data) {
           this.employeeForm = this.formBuilder.group({
             employeeArray: this.formBuilder.array([]),
@@ -162,7 +162,8 @@ export class CRUDDemoListViewComponent {
 
   deleteForm(index: any) {
     if (confirm("Are you sure you want to delete the record?")) {
-      this.landingSrv.deleteEmpData((this.employeeForm.get('employeeArray') as FormArray).controls[index].value['id']).subscribe((data: any) => {
+      this.landingSrv.deleteEmpData((this.employeeForm.get('employeeArray') as FormArray).controls[index].value['EMPID']).subscribe((data: any) => {
+        console.log(data);
 
         this.employeeForm = this.formBuilder.group({
           employeeArray: this.formBuilder.array([]),
