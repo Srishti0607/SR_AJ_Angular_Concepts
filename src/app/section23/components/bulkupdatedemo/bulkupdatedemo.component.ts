@@ -94,10 +94,10 @@ export class BulkupdatedemoComponent {
 
       if(item['check']){
         this.selectAll= item['check'];
-        this.idObj.push(item.id);
+        this.idObj.push(item.CustName);
         }else{
           this.selectAll= item['check'];
-          const objIdRef = this.idObj.find((ele: any) => ele === item.id);
+          const objIdRef = this.idObj.find((ele: any) => ele === item.CustName);
           objIdRef && this.idObj.splice(this.idObj.indexOf(objIdRef), 1);
         }
     }

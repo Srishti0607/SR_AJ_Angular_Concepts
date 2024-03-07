@@ -82,24 +82,25 @@ export class CustomdemoService {
 bulkInsertData(payload: any) {
   const headers = new HttpHeaders()
   .set('Content-Type', 'application/json');
-  let url = "http://localhost:3000/bulkInsert"
+  let url = this.baseURL+"/bulkCrudInsert"
   return this.http.post(url, payload,{headers});
 }
 
   //get Data
   getDataToUpdate() {
-    let url = "http://localhost:3000/bulkInsert"
+    let url = this.baseURL+"/getCrudData";
     return this.http.get(url);
   }
 
 
   bulkUpdateData(payload:any) {
-    let url = "http://localhost:3000/bulkInsert/"+payload.id;
+    // let url = "http://localhost:3000/bulkInsert/"+payload.id;
+    let url = this.baseURL+"bulkCrudUpdate/"+payload.CustName
     return this.http.put(url, payload);
   }
 
   deleteCustomerData(id:any){
-    return this.http.delete('http://localhost:3000/bulkinsert/'+id);
+    return this.http.delete(this.baseURL+'deleteCrudData/'+id,{responseType: 'text'});
   }
 
   getCountryData(page: string | number,limit: string | number){
